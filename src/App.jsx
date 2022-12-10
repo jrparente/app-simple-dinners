@@ -29,7 +29,7 @@ function App() {
     "cauliflower",
     "bell peppers",
   ];
-  const readyMeals = ["spaghetti carbonara", "pizza", "hamburguer"];
+  const readyMeals = ["spaghetti carbonara", "lasagna", "pizza", "hamburguer"];
 
   function randomIngredient(array) {
     return array[Math.floor(Math.random() * array.length)];
