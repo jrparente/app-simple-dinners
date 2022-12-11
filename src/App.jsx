@@ -18,9 +18,12 @@ function App() {
     ];
   }
 
-  const [bigMealsIngredieents, setBigMealsIngredieents] = useState([]);
+  let [bigMealsIngredients, setBigMealsIngredients] = useState([]);
   function randomBigMeal(bigMeals) {
     const randomNumber = Math.floor(Math.random() * bigMeals.length);
+
+    const ingredient = [bigMeals[randomNumber].ingredients];
+    setBigMealsIngredients(ingredient);
     return {
       name: [bigMeals[randomNumber].name],
       ingredients: [bigMeals[randomNumber].ingredients],
@@ -45,10 +48,10 @@ function App() {
   function makeShoppingList() {
     let list = [];
     weeklyDinners.map((dinner) => {
-      if (dinner.length > 1) {
+      if (dinner.length === 5) {
         return (list = [...list, ...dinner]);
       } else {
-        return (list = [...list, dinner.ingredients]);
+        return (list = [...list, ...bigMealsIngredients]);
       }
     });
     setShoppingList(list);
