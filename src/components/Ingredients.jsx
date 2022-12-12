@@ -1,7 +1,28 @@
 export default {
-  proteins: ["chicken", "codfish", "whitefish", "canned tuna", "tuna steak"],
-  carbs: ["boiled potatoes", "french fries", "pasta", "noisettes", "rice"],
-  vegs: ["broccoli", "tomatoes", "carrots", "cauliflower", "bell peppers"],
+  proteins: [
+    "beans",
+    "chicken",
+    "codfish",
+    "whitefish",
+    "canned tuna",
+    "tuna steak",
+  ],
+  carbs: [
+    "boiled potatoes",
+    "french fries",
+    "pasta",
+    "noisettes",
+    "rice",
+    "couscous",
+  ],
+  vegs: [
+    "broccoli",
+    "lettuce",
+    "tomatoes",
+    "carrots",
+    "cauliflower",
+    "bell peppers",
+  ],
   bigMeals: [
     {
       name: "spaghetti carbonara",

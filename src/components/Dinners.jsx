@@ -2,5 +2,5 @@ import React from "react";
 
 export default function Dinners(props) {
   const thisDinner = props.dinner.map((item) => item + ", ");
-  return <li>Dinner: {thisDinner}</li>;
+  return <li>{thisDinner}</li>;
 }
