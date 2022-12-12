@@ -33,12 +33,15 @@ export default function ShoppingList({ bigMeals, dinners, render }) {
   }, [render]);
 
   return (
-    <ul>
-      {shoppingList.map((listItem) => (
-        <li key={listItem.id}>
-          {listItem.produce}: {listItem.count}
-        </li>
-      ))}
-    </ul>
+    <section className="shopping-list">
+      <p className="title">Shopping List:</p>
+      <ul>
+        {shoppingList.map((listItem) => (
+          <li key={listItem.id}>
+            {listItem.produce}: {listItem.count}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

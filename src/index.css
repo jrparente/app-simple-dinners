@@ -29,7 +29,8 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  width: 100%;
+  width: calc(100% - 2rem);
+  margin-inline: auto;
   min-height: 100vh;
 }
 
@@ -78,4 +79,11 @@ button:focus-visible {
 .container {
   max-width: 45rem;
   margin-inline: auto;
+}
+
+/* Custom Properties */
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
 }

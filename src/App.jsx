@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dinners from "./components/Dinners";
 import Ingredients from "./components/Ingredients";
 import ShoppingList from "./components/ShoppingList";
+import Header from "./components/Header";
 
 function App() {
   // Generate random ingredient
@@ -65,25 +66,25 @@ function App() {
 
   return (
     <div className="App container">
-      <button onClick={getAllDinners}>
-        {weeklyDinners.length > 0 ? `Give me a new Menu` : `Generate Dinners`}
-      </button>
-      {weeklyDinners.length > 0 ? (
-        <button onClick={saveMenu}>Save Menu</button>
-      ) : (
-        <button onClick={getSavedMenu}>Get Saved Menu</button>
-      )}
-
-      <p>Dinners:</p>
-      <ol>{displayDinners}</ol>
-
-      <p>Shopping List:</p>
-
-      <ShoppingList
-        dinners={weeklyDinners}
-        bigMeals={bigMealsIngredients}
-        render={displayDinners}
+      <Header
+        getAllDinners={getAllDinners}
+        saveMenu={saveMenu}
+        getSavedMenu={getSavedMenu}
+        weeklyDinners={weeklyDinners}
       />
+
+      {weeklyDinners.length > 0 && (
+        <>
+          <p className="title">Dinners:</p>
+          <ol>{displayDinners}</ol>
+
+          <ShoppingList
+            dinners={weeklyDinners}
+            bigMeals={bigMealsIngredients}
+            render={displayDinners}
+          />
+        </>
+      )}
     </div>
   );
 }
