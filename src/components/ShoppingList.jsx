@@ -19,8 +19,6 @@ export default function ShoppingList({ bigMeals, dinners, render }) {
     counts[item] = counts[item] ? counts[item] + 1 : 1;
   });
 
-  console.log(counts);
-
   useEffect(() => {
     for (const [ingredient, num] of Object.entries(counts)) {
       setShoppingList((prevState) => [
@@ -33,8 +31,6 @@ export default function ShoppingList({ bigMeals, dinners, render }) {
       setShoppingList([]);
     };
   }, [render]);
-
-  console.log(shoppingList);
 
   return (
     <ul>
