@@ -48,14 +48,34 @@ function App() {
   }
 
   // Display all meals created in the DOM
-  const displayDinners = weeklyDinners.map((dinner) => (
+  let displayDinners = weeklyDinners.map((dinner) => (
     <Dinners dinner={dinner} key={dinner.toString()} />
   ));
 
+  // Save menu to local storage
+  function saveMenu() {
+    localStorage.setItem("weeklyDinners", JSON.stringify(weeklyDinners));
+  }
+
+  // Get menu from local Storage
+  function getSavedMenu() {
+    setWeeklyDinners(JSON.parse(localStorage.getItem("weeklyDinners")));
+    displayDinners = weeklyDinners;
+  }
+
   return (
     <div className="App container">
+      <button onClick={getAllDinners}>
+        {weeklyDinners.length > 0 ? `Give me a new Menu` : `Generate Dinners`}
+      </button>
+      {weeklyDinners.length > 0 ? (
+        <button onClick={saveMenu}>Save Menu</button>
+      ) : (
+        <button onClick={getSavedMenu}>Get Saved Menu</button>
+      )}
+
       <p>Dinners:</p>
-      <ul>{displayDinners}</ul>
+      <ol>{displayDinners}</ol>
 
       <p>Shopping List:</p>
 
@@ -64,8 +84,6 @@ function App() {
         bigMeals={bigMealsIngredients}
         render={displayDinners}
       />
-
-      <button onClick={getAllDinners}>Give me the Dinners</button>
     </div>
   );
 }

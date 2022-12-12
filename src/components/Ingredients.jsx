@@ -9,6 +9,8 @@ export default {
   ],
   carbs: [
     "boiled potatoes",
+    "mashed potatoes",
+    "roasted potatoes",
     "french fries",
     "pasta",
     "noisettes",
@@ -16,12 +18,13 @@ export default {
     "couscous",
   ],
   vegs: [
-    "broccoli",
+    "steemed broccoli",
     "lettuce",
     "tomatoes",
-    "carrots",
-    "cauliflower",
-    "bell peppers",
+    "steemed carrots",
+    "baked cauliflower",
+    "roasted bell peppers",
+    "baked aubergine",
   ],
   bigMeals: [
     {
