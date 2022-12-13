@@ -34,6 +34,11 @@ body {
   min-height: 100vh;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -81,7 +86,25 @@ button:focus-visible {
   margin-inline: auto;
 }
 
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
 /* Custom Properties */
+.App {
+  flex-direction: column;
+}
+
+.header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  max-height: 80px;
+}
+
+.logo {
+  max-height: 50px;
+}
 
 .title {
   font-size: 2rem;

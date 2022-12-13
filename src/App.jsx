@@ -65,7 +65,7 @@ function App() {
   }
 
   return (
-    <div className="App container">
+    <div className="App container flex">
       <Header
         getAllDinners={getAllDinners}
         saveMenu={saveMenu}
@@ -75,8 +75,10 @@ function App() {
 
       {weeklyDinners.length > 0 && (
         <>
-          <p className="title">Dinners:</p>
-          <ol>{displayDinners}</ol>
+          <section className="dinners">
+            <p className="title">Dinners:</p>
+            <ol>{displayDinners}</ol>
+          </section>
 
           <ShoppingList
             dinners={weeklyDinners}
