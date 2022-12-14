@@ -1,11 +1,15 @@
 export default {
   proteins: [
-    "beans",
-    "chicken",
-    "codfish",
-    "whitefish",
-    "canned tuna",
-    "tuna steak",
+    "🌱 Beans",
+    "🌱 Chickpeas",
+    "🌱 Lentils",
+    "🍗 Chicken",
+    "🍖 Beef",
+    "🐟 Codfish",
+    "🐟 Whitefish",
+    "🐟 Canned tuna",
+    "🐟 Tuna steak",
+    "🐟 Salmon",
   ],
   carbs: ["potatoes", "french fries", "pasta", "noisettes", "rice", "couscous"],
   vegs: [
@@ -20,7 +24,7 @@ export default {
   ],
   bigMeals: [
     {
-      name: "spaghetti carbonara",
+      name: "🥓 Spaghetti carbonara",
       ingredients: [
         "spaghetti",
         "bacon",
@@ -31,7 +35,7 @@ export default {
       ],
     },
     {
-      name: "lasagna",
+      name: "🍖 Lasagna",
       ingredients: [
         "lasagna pasta",
         "tomato sauce",
@@ -43,7 +47,7 @@ export default {
       ],
     },
     {
-      name: "fish pie",
+      name: "🐟 Fish pie",
       ingredients: [
         "white fish",
         "milk",
@@ -54,7 +58,7 @@ export default {
       ],
     },
     {
-      name: "peas and eggs",
+      name: "🥚 Peas and eggs",
       ingredients: [
         "peas",
         "tomatoes",
@@ -66,7 +70,7 @@ export default {
       ],
     },
     {
-      name: "spaghetti bolognese",
+      name: "🍖 Spaghetti bolognese",
       ingredients: [
         "spaghetti",
         "tomato sauce",

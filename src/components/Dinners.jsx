@@ -1,4 +1,5 @@
 import React from "react";
+import { nanoid } from "nanoid";
 
 export default function Dinners(props) {
   let dinner = [];
@@ -15,7 +16,9 @@ export default function Dinners(props) {
       <p className="title">Dinners:</p>
       <ol>
         {dinner.map((item) => (
-          <li className="dinner-list">{item}</li>
+          <li className="dinner-list" key={nanoid()}>
+            {item}
+          </li>
         ))}
       </ol>
     </section>
