@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgb(36, 36, 36);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -144,18 +144,30 @@ button:focus-visible {
 
 .saved-menus-title {
   overflow: hidden;
-  width: 100%;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-left: 0.5rem;
+  padding-inline: 0.5rem;
+  justify-content: space-between;
 }
 
 .selected-menu {
-  background-color: #474a81;
+  background-color: rgb(71, 74, 129);
 }
 
+.selected-menu:hover,
 .saved-menus-title:hover {
-  display: block;
+  background-color: rgba(71, 74, 129, 0.5);
+}
+
+.sidebar-trash-icon {
+  color: transparent;
+}
+
+.sidebar-trash-icon:hover {
+  color: rgba(36, 36, 36);
+}
+
+.saved-menus-title:hover .sidebar-trash-icon:not(:hover) {
+  color: #fff;
 }

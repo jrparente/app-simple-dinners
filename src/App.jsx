@@ -83,6 +83,14 @@ function App() {
     setMenus([]);
   }
 
+  // one specific menu when trahs icon for that menu
+  // is clicked on the sidebar
+  function deleteMenu(event, menuId) {
+    event.stopPropagation();
+    const newMenuList = menus.filter((menu) => menu.id != menuId);
+    setMenus(newMenuList);
+  }
+
   // RENDER APP
   return (
     <div className="App container flex">
@@ -93,6 +101,7 @@ function App() {
           setCurrentDinnerID={setCurrentDinnerID}
           clearLocalStorage={clearLocalStorage}
           currentDinnerID={currentDinnerID}
+          deleteMenu={deleteMenu}
         />
       )}
 

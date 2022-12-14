@@ -1,7 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Sidebar(props) {
-  console.log(props);
   const displaySavedMenus = props.dinners.map((dinner, index) => (
     <div key={dinner.id}>
       <div
@@ -11,6 +12,11 @@ export default function Sidebar(props) {
         onClick={() => props.changeDisplayedDinner(dinner.id)}
       >
         <h4>Menu {index + 1}</h4>
+        <FontAwesomeIcon
+          icon={faTrash}
+          className="sidebar-trash-icon"
+          onClick={(event) => props.deleteMenu(event, dinner.id)}
+        />
       </div>
     </div>
   ));
