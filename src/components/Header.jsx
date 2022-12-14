@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 export default function Header(props) {
+  console.log(props);
   return (
     <header className="header flex">
       <button onClick={props.createNewMeal}>New Menu</button>
-      {props.menus.length > 0 && (
+      {props.menus && (
         <button
           class="nav-toggle"
           aria-controls="primary-nav"
