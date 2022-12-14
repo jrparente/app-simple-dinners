@@ -1,6 +1,10 @@
 # Simple Meals
 
-A simple app that helps me get dinner ideas and generate shopping lists.
+A simple app to help get dinner ideas and generate shopping lists.
+
+Although there are many of these apps already out there, I find thatthe dinner ideas are not "simple" enough. I wanted something that would generate ideas for dinners with 1 protein, 1 carb and 3 vegs. Also, it includes one more "complicated" meal option per menu.
+
+The app also generates a Shopping List for each Menu generated, and saves the generated menus in local storage.
 
 ## Features
 
