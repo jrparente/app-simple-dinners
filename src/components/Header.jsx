@@ -4,7 +4,7 @@ export default function Header(props) {
   return (
     <header className="header flex">
       <button onClick={props.createNewMeal}>New Menu</button>
-      <button
+      {props.menus.length >0 <button
         class="nav-toggle"
         aria-controls="primary-nav"
         aria-expanded="false"
@@ -37,7 +37,7 @@ export default function Header(props) {
           </g>
         </svg>
         <span class="sr-only">Menu</span>
-      </button>
+      </button>}
     </header>
   );
 }
