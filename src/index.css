@@ -91,9 +91,28 @@ button:focus-visible {
   gap: var(--gap, 1rem);
 }
 
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
+}
+
+.hide {
+  display: none !important;
+}
+
 /* Custom Properties */
 .App {
   flex-direction: row;
+  --gap: 2rem;
 }
 
 .header {
@@ -170,4 +189,27 @@ button:focus-visible {
 
 .saved-menus-title:hover .sidebar-trash-icon:not(:hover) {
   color: #fff;
+}
+
+@media (max-width: 700px) {
+  .main {
+    width: 100%;
+  }
+
+  .header {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .sidebar {
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+    position: fixed;
+    z-index: 9999;
+    background-color: rgba(36, 36, 36, 0.99);
+    width: 70%;
+  }
+
+  .sidebar[menu-visible] {
+    transform: translateX(0);
+  }
 }

@@ -13,6 +13,38 @@ function App() {
   const [currentDinnerID, setCurrentDinnerID] = useState(
     (menus[0] && menus[0].id) || ""
   );
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
+  const [showSidebar, setShowSidebar] = useState();
+
+  // Check Window size to apply/remove Responsive Layout and functionalities to components
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => {
+        const ismobile = window.innerWidth < 700;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+      },
+      false
+    );
+  }, [isMobile]);
+
+  useEffect(() => {
+    setShowSidebar(isMobile);
+  }, [isMobile]);
+
+  // Change Sidebar visibility on button click in Mobile
+  function changeShow() {
+    const menuOpen = document.querySelector(".icon-open");
+    const menuClose = document.querySelector(".icon-close");
+    const sidebar = document.querySelector(".sidebar");
+
+    sidebar.hasAttribute("menu-visible")
+      ? menuOpen.classList.remove("hide") & menuClose.classList.add("hide")
+      : menuOpen.classList.add("hide") & menuClose.classList.remove("hide");
+
+    setShowSidebar((prevShow) => !prevShow);
+    sidebar.toggleAttribute("menu-visible");
+  }
 
   // Generate random ingredient
   function randomIngredient(array) {
@@ -98,15 +130,21 @@ function App() {
         <Sidebar
           dinners={menus}
           changeDisplayedDinner={changeDisplayedDinner}
-          setCurrentDinnerID={setCurrentDinnerID}
           clearLocalStorage={clearLocalStorage}
           currentDinnerID={currentDinnerID}
           deleteMenu={deleteMenu}
+          isMobile={isMobile}
+          showSidebar={showSidebar}
         />
       )}
 
       <main className="main">
-        <Header createNewMeal={createNewMeal} menu={menus} />
+        <Header
+          createNewMeal={createNewMeal}
+          menu={menus}
+          isMobile={isMobile}
+          changeShow={changeShow}
+        />
 
         {menus.length > 0 && (
           <>

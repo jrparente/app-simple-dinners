@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,7 +21,7 @@ export default function Sidebar(props) {
   ));
 
   return (
-    <section className="pane sidebar">
+    <section className={`${props.showSidebar ? "hide" : ""} pane sidebar`}>
       <div className="sidebar--header">
         <p className="sidebar-title">Saved Dinners</p>
         <button onClick={props.clearLocalStorage}>Delete All Menus</button>
