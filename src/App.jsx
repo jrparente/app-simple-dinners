@@ -119,7 +119,7 @@ function App() {
   // is clicked on the sidebar
   function deleteMenu(event, menuId) {
     event.stopPropagation();
-    const newMenuList = menus.filter((menu) => menu.id != menuId);
+    const newMenuList = menus.filter((menu) => menu.id !== menuId);
     setMenus(newMenuList);
   }
 

@@ -21,6 +21,7 @@ export default {
     "bell peppers",
     "aubergine",
     "beetroot",
+    "peas",
   ],
   bigMeals: [
     {

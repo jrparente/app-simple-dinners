@@ -12,7 +12,7 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 - [x] Select Random ingredients from a meal ✅
 
-- [ ] Add and select entire meals alongside random ingredients 🚨 Need to prevent duplicate vegs
+- [ ] Add and select entire meals alongside random ingredients 🚨 Need to prevent duplicate vegs ‼️
 
 - [ ] Select varied proteins for the menu (prevent eating same protein type on all meals)
 
@@ -28,13 +28,13 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 - [x] Ability to clear local storage ✅
 
-- [ ] Ability to delete selected Menus from the sidebar
+- [x] Ability to delete selected Menus from the sidebar ✅
 
 ## Roadmap
 
 ### Short / Medium term:
 
-- [ ] Work on Mobile version (maybe toggle sidebar with a hamburguer icon?)
+- [x] Work on Mobile version (maybe toggle sidebar with a hamburguer icon?)
 
 - [ ] Ability to choose number of dinners to generate
 

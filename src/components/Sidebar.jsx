@@ -10,7 +10,7 @@ export default function Sidebar(props) {
         }`}
         onClick={() => props.changeDisplayedDinner(dinner.id)}
       >
-        <h4>Menu {index + 1}</h4>
+        <h4 className="sidebar-menus-title">Menu {index + 1}</h4>
         <FontAwesomeIcon
           icon={faTrash}
           className="sidebar-trash-icon"
