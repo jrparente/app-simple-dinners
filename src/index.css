@@ -202,6 +202,11 @@ button:focus-visible {
   color: #fff;
 }
 
+.nav-toggle {
+  align-items: center;
+  padding: 0.6em;
+}
+
 @media (max-width: 700px) {
   .main {
     width: 100%;
