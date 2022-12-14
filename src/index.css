@@ -112,8 +112,10 @@ button:focus-visible {
 }
 
 .sidebar-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  line-height: 2rem;
   font-weight: 600;
+  margin-bottom: 0;
 }
 
 .pane {
@@ -124,11 +126,14 @@ button:focus-visible {
 .sidebar {
   width: 25%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .sidebar--header {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   flex-direction: column;
 }
 
@@ -144,6 +149,11 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 0.5rem;
+}
+
+.selected-menu {
+  background-color: #474a81;
 }
 
 .saved-menus-title:hover {

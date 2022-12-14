@@ -92,6 +92,7 @@ function App() {
           changeDisplayedDinner={changeDisplayedDinner}
           setCurrentDinnerID={setCurrentDinnerID}
           clearLocalStorage={clearLocalStorage}
+          currentDinnerID={currentDinnerID}
         />
       )}
 
