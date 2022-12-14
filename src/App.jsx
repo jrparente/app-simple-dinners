@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
 import Dinners from "./components/Dinners";
 import Ingredients from "./components/Ingredients";
 import ShoppingList from "./components/ShoppingList";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 function App() {
+  const [menus, setMenus] = useState(
+    JSON.parse(localStorage.getItem("menus")) || []
+  );
+  const [currentDinnerID, setCurrentDinnerID] = useState(
+    (menus[0] && menus[0].id) || ""
+  );
+
   // Generate random ingredient
   function randomIngredient(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -22,12 +31,8 @@ function App() {
   }
 
   // Generate one random Meal from the bigMeals Array of objects
-  const [bigMealsIngredients, setBigMealsIngredients] = useState([]);
   function randomBigMeal(bigMeals) {
     const randomNumber = Math.floor(Math.random() * bigMeals.length);
-
-    const ingredient = [bigMeals[randomNumber].ingredients];
-    setBigMealsIngredients(ingredient);
 
     return {
       name: [bigMeals[randomNumber].name],
@@ -36,57 +41,71 @@ function App() {
   }
 
   // Create 5 dinners: 4 simple plates + 1 big meal
-  const [weeklyDinners, setWeeklyDinners] = useState([]);
+  function createNewMeal() {
+    const newMenu = {
+      id: nanoid(),
+      menu: [
+        makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
+        makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
+        makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
+        makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
+        randomBigMeal(Ingredients.bigMeals),
+      ],
+    };
 
-  function getAllDinners() {
-    setWeeklyDinners([
-      makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
-      makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
-      makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
-      makeDinner(Ingredients.proteins, Ingredients.carbs, Ingredients.vegs),
-      randomBigMeal(Ingredients.bigMeals).name,
-    ]);
+    setMenus((prevMenus) => [newMenu, ...prevMenus]);
+    setCurrentDinnerID(newMenu.id);
   }
 
-  // Display all meals created in the DOM
-  let displayDinners = weeklyDinners.map((dinner) => (
-    <Dinners dinner={dinner} key={dinner.toString()} />
-  ));
+  // Find the current Meal, in order to
+  // display the correct dinners and shopping list
+  function findCurrentMeal() {
+    return (
+      menus.find((menu) => {
+        return menu.id === currentDinnerID;
+      }) || menus[0]
+    );
+  }
 
   // Save menu to local storage
-  function saveMenu() {
-    localStorage.setItem("weeklyDinners", JSON.stringify(weeklyDinners));
+  useEffect(() => {
+    localStorage.setItem("menus", JSON.stringify(menus));
+  }, [menus]);
+
+  // Change Displayed Dinner
+  function changeDisplayedDinner(props) {
+    setCurrentDinnerID(props);
   }
 
-  // Get menu from local Storage
-  function getSavedMenu() {
-    setWeeklyDinners(JSON.parse(localStorage.getItem("weeklyDinners")));
-    displayDinners = weeklyDinners;
+  // Delete all from local Storage
+  function clearLocalStorage() {
+    localStorage.clear();
+    setMenus([]);
   }
 
+  // RENDER APP
   return (
     <div className="App container flex">
-      <Header
-        getAllDinners={getAllDinners}
-        saveMenu={saveMenu}
-        getSavedMenu={getSavedMenu}
-        weeklyDinners={weeklyDinners}
-      />
-
-      {weeklyDinners.length > 0 && (
-        <>
-          <section className="dinners">
-            <p className="title">Dinners:</p>
-            <ol>{displayDinners}</ol>
-          </section>
-
-          <ShoppingList
-            dinners={weeklyDinners}
-            bigMeals={bigMealsIngredients}
-            render={displayDinners}
-          />
-        </>
+      {menus.length > 0 && (
+        <Sidebar
+          dinners={menus}
+          changeDisplayedDinner={changeDisplayedDinner}
+          setCurrentDinnerID={setCurrentDinnerID}
+          clearLocalStorage={clearLocalStorage}
+        />
       )}
+
+      <main className="main">
+        <Header createNewMeal={createNewMeal} menu={menus} />
+
+        {menus.length > 0 && (
+          <>
+            <Dinners currentMenu={findCurrentMeal()} />
+
+            <ShoppingList currentMenu={findCurrentMeal()} />
+          </>
+        )}
+      </main>
     </div>
   );
 }

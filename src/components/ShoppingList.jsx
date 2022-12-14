@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 
 let nextID = 0;
 
-export default function ShoppingList({ bigMeals, dinners, render }) {
+export default function ShoppingList(props) {
+  const menu = props.currentMenu.menu;
   const [shoppingList, setShoppingList] = useState([]);
   let list = [];
 
-  bigMeals.map((bigMeal) => {
-    list = [...list, ...bigMeal];
+  menu.map((item) => {
+    Array.isArray(item)
+      ? (list = [...list, ...item])
+      : (list = [...list, ...item.ingredients[0]]);
   });
 
-  for (let i = 0; i < dinners.length - bigMeals.length; i++) {
-    list = [...list, ...dinners[i]];
-  }
-
+  // Count number of duplicate ingredients, so that latter we can
+  // display them on one line
   const counts = {};
   list.map((item) => {
     counts[item] = counts[item] ? counts[item] + 1 : 1;
@@ -30,7 +31,7 @@ export default function ShoppingList({ bigMeals, dinners, render }) {
     return function cleanup() {
       setShoppingList([]);
     };
-  }, [render]);
+  }, [props]);
 
   return (
     <section className="shopping-list">
