@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export default function Header(props) {
-  console.log("isMobile", props.isMobile);
-  console.log("!isMobile", !props.isMobile);
-  console.log("showToggle", props.showToggle);
-
   return (
     <header className="header flex">
       <button onClick={props.createNewMeal}>New Menu</button>

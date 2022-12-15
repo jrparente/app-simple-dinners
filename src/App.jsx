@@ -30,8 +30,8 @@ function App() {
   }, [isMobile]);
 
   useEffect(() => {
-    setShowSidebar(isMobile);
-  }, [isMobile]);
+    setShowSidebar(menus.length > 0 ? true : false);
+  }, [menus.length, isMobile]);
 
   useEffect(() => {
     setShowToggle(isMobile & (menus.length > 0) ? true : false);
