@@ -36,7 +36,7 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 - [ ] 🪳 Need to prevent duplicate vegs on the makedinner()
 
-- [ ] 🪳 Problem with sidebar on mobile: when the user does not have anything stored in local storage, and generates the first meal on Mobile, the sidebar immediately appears (it shouldn't. It should just appear the button to toggle it), and it's pushed to the right side of the screen, instead of the left.
+- [x] 🪳 Problem with sidebar on mobile: when the user does not have anything stored in local storage, and generates the first meal on Mobile, the sidebar immediately appears (it shouldn't. It should just appear the button to toggle it), and it's pushed to the right side of the screen, instead of the left.
 
 ### Short / Medium term features:
 
@@ -58,6 +58,6 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 ### Long term features:
 
-- [ ] Light/dark mode toggle
+- [ ] Light/dark mode toggle, in addition to the @media (prefers-color-scheme: light) in the CSS file
 
 - [ ] Ability to store information in a database
