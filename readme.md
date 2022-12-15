@@ -8,29 +8,35 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 ## Features
 
-- [x] Store ingredients in arrays ✅
+- [x] Store ingredients in arrays
 
-- [x] Select Random ingredients from a meal ✅
+- [x] Select Random ingredients from a meal
 
-- [ ] Add and select entire meals alongside random ingredients 🚨 Need to prevent duplicate vegs ‼️
+- [x] Add and select entire meals alongside random ingredients
 
 - [ ] Select varied proteins for the menu (prevent eating same protein type on all meals)
 
-- [x] Generate a shopping list from all the required produce ✅
+- [x] Generate a shopping list from all the required produce
 
-- [x] Render results in the DOM ✅
+- [x] Render results in the DOM
 
 - [x] Create separate components for each reusable part of the code: ingredients data ✅, individual dinners ✅, shopping list ✅
 
-- [x] Save Generated Menus to Local Storage (and load them on refresh) ✅
+- [x] Save Generated Menus to Local Storage (and load them on refresh)
 
-- [x] Sidebar with all Menus saved in local storage. On click it displays the selected menu and ingredients for that menu. ✅
+- [x] Sidebar with all Menus saved in local storage. On click it displays the selected menu and ingredients for that menu.
 
-- [x] Ability to clear local storage ✅
+- [x] Ability to clear local storage
 
-- [x] Ability to delete selected Menus from the sidebar ✅
+- [x] Ability to delete selected Menus from the sidebar
 
 ## Roadmap
+
+### 🚨 Fix Bugs
+
+- [ ] 🪳 Need to prevent duplicate vegs on the makedinner()
+
+- [ ] 🪳 Problem with sidebar on mobile: when the user does not have anything stored in local storage, and generates the first meal on Mobile, the sidebar immediately appears (it shouldn't. It should just appear the button to toggle it), and it's pushed to the right side of the screen, instead of the left.
 
 ### Short / Medium term:
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Header(props) {
-  console.log(props.menu);
+  console.log(props);
   return (
     <header className="header flex">
       <button onClick={props.createNewMeal}>New Menu</button>
@@ -9,7 +9,7 @@ export default function Header(props) {
         <button
           aria-controls="primary-nav"
           aria-expanded="false"
-          className={`nav-toggle flex ${props.isMobile ? "" : "hide"}`}
+          className={`nav-toggle flex ${props.showSidebar ? "" : "hide"}`}
           onClick={props.changeShow}
         >
           <svg
@@ -26,7 +26,7 @@ export default function Header(props) {
             x="0px"
             y="0px"
             viewBox="0 0 1000 1000"
-            enable-background="new 0 0 1000 1000"
+            enableBackground="new 0 0 1000 1000"
             width="30"
             title="cross"
             aria-hidden="true"
