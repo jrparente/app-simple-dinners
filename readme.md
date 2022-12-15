@@ -40,6 +40,8 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 ### Short / Medium term features:
 
+- [ ] Provide more information about the Big Meals - perhaps a link to a recipe, an separete the ingredients for this recipe in a separate shopping list?
+
 - [x] Work on Mobile version (maybe toggle sidebar with a hamburguer icon?)
 
 - [ ] Ability to choose number of dinners to generate
