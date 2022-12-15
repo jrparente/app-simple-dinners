@@ -39,16 +39,7 @@ function App() {
 
   // Change Sidebar visibility on button click in Mobile
   function changeShow() {
-    const menuOpen = document.querySelector(".icon-open");
-    const menuClose = document.querySelector(".icon-close");
-    const sidebar = document.querySelector(".sidebar");
-
-    sidebar.hasAttribute("menu-visible")
-      ? menuOpen.classList.remove("hide") & menuClose.classList.add("hide")
-      : menuOpen.classList.add("hide") & menuClose.classList.remove("hide");
-
     setShowSidebar((prevShow) => !prevShow);
-    sidebar.toggleAttribute("menu-visible");
   }
 
   // Generate random ingredient
@@ -149,6 +140,7 @@ function App() {
           isMobile={isMobile}
           showToggle={showToggle}
           changeShow={changeShow}
+          showSidebar={showSidebar}
         />
 
         {menus.length > 0 && (

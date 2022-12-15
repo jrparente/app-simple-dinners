@@ -206,7 +206,7 @@ button:focus-visible {
     width: 100%;
   }
   .sidebar {
-    transform: translateX(100%);
+    /* transform: translateX(100%); */
     transition: all 500ms ease-in-out;
     position: fixed;
     top: 0;
@@ -218,9 +218,9 @@ button:focus-visible {
     padding-inline: 0.5em;
   }
 
-  .sidebar[menu-visible] {
+  /* .sidebar[menu-visible] {
     transform: translateX(0);
-  }
+  } */
 
   .sidebar-trash-icon {
     color: #fff;
