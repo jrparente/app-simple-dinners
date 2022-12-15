@@ -38,7 +38,7 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 - [ ] 🪳 Problem with sidebar on mobile: when the user does not have anything stored in local storage, and generates the first meal on Mobile, the sidebar immediately appears (it shouldn't. It should just appear the button to toggle it), and it's pushed to the right side of the screen, instead of the left.
 
-### Short / Medium term:
+### Short / Medium term features:
 
 - [x] Work on Mobile version (maybe toggle sidebar with a hamburguer icon?)
 
@@ -56,7 +56,7 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 - [ ] Ability to print, share or save Shopping List to notes or tasks app
 
-### Long term:
+### Long term features:
 
 - [ ] Light/dark mode toggle
 

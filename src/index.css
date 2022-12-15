@@ -13,6 +13,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --background-color: ;
 }
 
 * {
@@ -65,19 +67,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
 #root {
@@ -235,5 +224,33 @@ button:focus-visible {
 
   .sidebar-trash-icon {
     color: #fff;
+  }
+}
+.icon-open,
+.icon-close {
+  fill: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  .App {
+    background-color: rgb(255, 255, 255);
+  }
+  .sidebar {
+    transform: translateX(100%);
+    background-color: rgba(255, 255, 255, 0.99);
+  }
+  .icon-open,
+  .icon-close {
+    fill: #213547;
   }
 }
