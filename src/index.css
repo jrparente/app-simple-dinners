@@ -206,7 +206,6 @@ button:focus-visible {
     width: 100%;
   }
   .sidebar {
-    transition: all 500ms ease-in-out;
     position: fixed;
     top: 0;
     left: 0;
@@ -239,6 +238,7 @@ button:focus-visible {
   }
   .App {
     background-color: rgb(255, 255, 255);
+    position: relative;
   }
   .sidebar {
     transform: translateX(100%);
