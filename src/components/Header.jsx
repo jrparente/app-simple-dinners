@@ -5,10 +5,23 @@ export default function Header(props) {
     <header
       className={`header flex ${props.menu.length === 0 ? "flex-column" : ""}`}
     >
-      <p className={`title lh-400 ${props.menu.length === 0 ? "" : "hide"}`}>
-        Tired of trying to think about what to have for dinner?
-      </p>
-      <button onClick={props.createNewMeal}>
+      <div
+        className={`${
+          props.menu.length === 0 ? "" : "hide"
+        } flex flex-column hidden-header`}
+      >
+        <p className={`title lh-400`}>
+          Tired of trying to think about what to have for dinner?
+        </p>
+        <img src="/cooking.svg" alt="" className="header-image" />
+        <p>
+          Get simple dinner ideas and generate a shopping list for the week!
+        </p>
+      </div>
+      <button
+        onClick={props.createNewMeal}
+        className={`${props.menu.length === 0 ? "margin-inline-auto" : ""}`}
+      >
         {props.menu.length > 0 ? "New Menu" : "Get Started"}
       </button>
       {props.menu && (
