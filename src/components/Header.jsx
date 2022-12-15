@@ -2,8 +2,15 @@ import React from "react";
 
 export default function Header(props) {
   return (
-    <header className="header flex">
-      <button onClick={props.createNewMeal}>New Menu</button>
+    <header
+      className={`header flex ${props.menu.length === 0 ? "flex-column" : ""}`}
+    >
+      <p className={`title lh-400 ${props.menu.length === 0 ? "" : "hide"}`}>
+        Tired of trying to think about what to have for dinner?
+      </p>
+      <button onClick={props.createNewMeal}>
+        {props.menu.length > 0 ? "New Menu" : "Get Started"}
+      </button>
       {props.menu && (
         <button
           aria-controls="primary-nav"

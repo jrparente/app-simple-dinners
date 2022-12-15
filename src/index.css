@@ -84,6 +84,15 @@ button:focus-visible {
   gap: var(--gap, 1rem);
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
@@ -102,6 +111,17 @@ button:focus-visible {
   display: none !important;
 }
 
+/* Typography */
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.lh-400 {
+  line-height: 2.5rem;
+}
+
 /* Custom Properties */
 .App {
   flex-direction: row;
@@ -114,16 +134,11 @@ button:focus-visible {
 .header {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  max-height: 80px;
+  width: 100%;
 }
 
 .logo {
   max-height: 50px;
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: 600;
 }
 
 .pane {
@@ -132,11 +147,11 @@ button:focus-visible {
 }
 
 .main {
-  width: 75%;
+  width: 100%;
 }
 
 .sidebar {
-  width: 25%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -199,10 +214,6 @@ button:focus-visible {
 @media (max-width: 700px) {
   body {
     width: calc(100% - 0.5rem);
-  }
-  .main {
-    width: 100%;
-    display: block;
   }
 
   .header {
