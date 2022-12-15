@@ -105,6 +105,10 @@ button:focus-visible {
   flex-direction: column;
 }
 
+.flex-reverse {
+  flex-direction: column-reverse;
+}
+
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
@@ -152,10 +156,14 @@ button:focus-visible {
   padding: 1rem 2rem 1rem 2rem;
 }
 
+.start-quiz {
+  padding: 2rem;
+}
+
 .header {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
   width: 100%;
+  align-items: center;
 }
 
 .hidden-header {
@@ -236,6 +244,11 @@ button:focus-visible {
   padding: 0.6em;
 }
 
+.icon-open,
+.icon-close {
+  fill: #fff;
+}
+
 @media (max-width: 700px) {
   body {
     width: calc(100% - 0.5rem);
@@ -260,10 +273,10 @@ button:focus-visible {
   .sidebar-trash-icon {
     color: #fff;
   }
-}
-.icon-open,
-.icon-close {
-  fill: #fff;
+  .header-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 @media (prefers-color-scheme: light) {

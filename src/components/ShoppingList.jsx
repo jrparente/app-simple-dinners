@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 let nextID = 0;
 
 export default function ShoppingList(props) {
+  const user = JSON.parse(localStorage.getItem("user"));
   const menu = props.currentMenu.menu;
   const [shoppingList, setShoppingList] = useState([]);
   let list = [];
@@ -32,6 +33,9 @@ export default function ShoppingList(props) {
       setShoppingList([]);
     };
   }, [props]);
+
+  // Multiply shopping list item numbers per household number
+  console.log(shoppingList);
 
   return (
     <section className="shopping-list">

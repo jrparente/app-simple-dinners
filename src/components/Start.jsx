@@ -22,47 +22,55 @@ export default function Start(props) {
   function handleSubmit(event) {
     event.preventDefault();
     // submitToApi(formData)
-    localStorage.setItem("username", user.username);
-    localStorage.setItem("household", user.household);
+    console.log(user);
+    localStorage.setItem("user", JSON.stringify(user));
     props.createNewMeal();
   }
 
   return (
     <section className="start-quiz">
-      <div className="flex flex-column hidden-header">
-        <p className="title lh-400">
-          Tired of trying to think about what to have for dinner?
-        </p>
-        <img src="/cooking.svg" alt="" className="header-image" />
-        <p>
-          Get simple dinner ideas and generate a shopping list for the week!
-        </p>
-      </div>
-      <button onClick={props.createNewMeal} className="margin-inline-auto">
-        Get Started
-      </button>
+      {!hideStartingScreen && (
+        <>
+          <div className="flex flex-column hidden-header">
+            <p className="title lh-400">
+              Tired of trying to think about what to have for dinner?
+            </p>
+            <img src="/cooking.svg" alt="" className="header-image" />
+            <p>
+              Get simple dinner ideas and generate a shopping list for the week!
+            </p>
+            <button onClick={getStarted} className="margin-inline-auto">
+              Get Started
+            </button>
+          </div>
+        </>
+      )}
 
-      <form onSubmit={handleSubmit} className="form flex flex-column">
-        <label htmlFor="username">What's your name?</label>
-        <input
-          type="text"
-          placeholder="Name"
-          name="username"
-          onChange={handleChange}
-          value={user.username}
-        />
-        <label htmlFor="household">
-          How many people are there in your household?
-        </label>
-        <input
-          type="number"
-          name="household"
-          onChange={handleChange}
-          value={user.household}
-        />
+      {hideStartingScreen && (
+        <form onSubmit={handleSubmit} className="form flex flex-column">
+          <label htmlFor="username">What's your name?</label>
+          <input
+            type="text"
+            placeholder="Name"
+            name="username"
+            onChange={handleChange}
+            value={user.username}
+            required="required"
+          />
+          <label htmlFor="household">
+            How many people are there in your household?
+          </label>
+          <input
+            type="number"
+            name="household"
+            onChange={handleChange}
+            value={user.household}
+            required="required"
+          />
 
-        <button className="margin-inline-auto">Get me my Dinners!</button>
-      </form>
+          <button className="margin-inline-auto">Get me my Dinners!</button>
+        </form>
+      )}
     </section>
   );
 }

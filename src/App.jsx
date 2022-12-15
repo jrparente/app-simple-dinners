@@ -5,6 +5,7 @@ import Ingredients from "./components/Ingredients";
 import ShoppingList from "./components/ShoppingList";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import Start from "./components/Start";
 
 function App() {
   const [menus, setMenus] = useState(
@@ -16,6 +17,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
   const [showSidebar, setShowSidebar] = useState(isMobile && menus.length > 0);
   const [showToggle, setShowToggle] = useState(isMobile && menus.length > 0);
+  console.log(showSidebar);
 
   // Check Window size to apply/remove Responsive Layout and functionalities to components
   useEffect(() => {
@@ -31,7 +33,7 @@ function App() {
 
   useEffect(() => {
     setShowSidebar(menus.length > 1 ? true : false);
-  }, [menus.length === 1]);
+  }, [menus.length === 1, isMobile]);
 
   useEffect(() => {
     setShowToggle(isMobile & (menus.length > 0) ? true : false);
@@ -134,17 +136,18 @@ function App() {
       )}
 
       <main className="main">
-        <Header
-          createNewMeal={createNewMeal}
-          menu={menus}
-          isMobile={isMobile}
-          showToggle={showToggle}
-          changeShow={changeShow}
-          showSidebar={showSidebar}
-        />
-
+        {menus.length === 0 && <Start createNewMeal={createNewMeal} />}
         {menus.length > 0 && (
           <>
+            <Header
+              createNewMeal={createNewMeal}
+              menu={menus}
+              isMobile={isMobile}
+              showToggle={showToggle}
+              changeShow={changeShow}
+              showSidebar={showSidebar}
+            />
+
             <Dinners currentMenu={findCurrentMeal()} />
 
             <ShoppingList currentMenu={findCurrentMeal()} />
