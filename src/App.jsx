@@ -15,6 +15,7 @@ function App() {
   );
   const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
   const [showSidebar, setShowSidebar] = useState(isMobile && menus.length > 0);
+  const [showToggle, setShowToggle] = useState(isMobile && menus.length > 0);
 
   // Check Window size to apply/remove Responsive Layout and functionalities to components
   useEffect(() => {
@@ -29,9 +30,12 @@ function App() {
   }, [isMobile]);
 
   useEffect(() => {
-    isMobile && menus.length > 0 ? console.log("true") : console.log("false");
-    setShowSidebar(isMobile && menus.length > 0);
+    setShowSidebar(isMobile);
   }, [isMobile]);
+
+  useEffect(() => {
+    setShowToggle(isMobile & (menus.length > 0) ? true : false);
+  }, [menus.length, isMobile]);
 
   // Change Sidebar visibility on button click in Mobile
   function changeShow() {
@@ -134,7 +138,6 @@ function App() {
           clearLocalStorage={clearLocalStorage}
           currentDinnerID={currentDinnerID}
           deleteMenu={deleteMenu}
-          isMobile={isMobile}
           showSidebar={showSidebar}
         />
       )}
@@ -144,7 +147,7 @@ function App() {
           createNewMeal={createNewMeal}
           menu={menus}
           isMobile={isMobile}
-          showSidebar={showSidebar}
+          showToggle={showToggle}
           changeShow={changeShow}
         />
 

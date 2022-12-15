@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 export default function Header(props) {
-  console.log(props);
+  console.log("isMobile", props.isMobile);
+  console.log("!isMobile", !props.isMobile);
+  console.log("showToggle", props.showToggle);
+
   return (
     <header className="header flex">
       <button onClick={props.createNewMeal}>New Menu</button>
@@ -9,7 +12,7 @@ export default function Header(props) {
         <button
           aria-controls="primary-nav"
           aria-expanded="false"
-          className={`nav-toggle flex ${props.showSidebar ? "" : "hide"}`}
+          className={`nav-toggle flex ${props.showToggle ? "" : "hide"}`}
           onClick={props.changeShow}
         >
           <svg
