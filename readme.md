@@ -46,7 +46,7 @@ The app also generates a Shopping List for each Menu generated, and saves the ge
 
 - [ ] Ability to choose number of dinners to generate
 
-- [ ] Ability for the user to insert the number of persons in household, and multiply the shopping list by that number of persons (the shoppigng list is currently per portion)
+- [ ] Ability for the user to insert the number of persons in household, and multiply the shopping list by that number of persons (the shopping list is currently per portion)
 
 - [ ] Ability for the user to add ingredients and big meals to the Ingredients data (ie: most used ingredients in a household)
 

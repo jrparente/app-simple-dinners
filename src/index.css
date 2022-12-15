@@ -38,16 +38,33 @@ body {
   width: calc(100% - 2rem);
   margin-inline: auto;
   min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
-img {
-  display: block;
+img,
+picture {
   max-width: 100%;
+  display: block;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
 button {
@@ -237,6 +254,7 @@ button:focus-visible {
     width: 70%;
     height: 100vh;
     padding-inline: 0.5em;
+    padding-top: 2rem;
   }
 
   .sidebar-trash-icon {

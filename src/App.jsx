@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     setShowSidebar(menus.length > 1 ? true : false);
-  }, [menus.length, isMobile]);
+  }, [menus.length === 1]);
 
   useEffect(() => {
     setShowToggle(isMobile & (menus.length > 0) ? true : false);
