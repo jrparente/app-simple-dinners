@@ -30,7 +30,7 @@ function App() {
   }, [isMobile]);
 
   useEffect(() => {
-    setShowSidebar(menus.length > 0 ? true : false);
+    setShowSidebar(menus.length > 1 ? true : false);
   }, [menus.length, isMobile]);
 
   useEffect(() => {
