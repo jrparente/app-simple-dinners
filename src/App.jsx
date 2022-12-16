@@ -17,7 +17,6 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
   const [showSidebar, setShowSidebar] = useState(isMobile && menus.length > 0);
   const [showToggle, setShowToggle] = useState(isMobile && menus.length > 0);
-  console.log(showSidebar);
 
   // Check Window size to apply/remove Responsive Layout and functionalities to components
   useEffect(() => {

@@ -25,7 +25,13 @@ export default function ShoppingList(props) {
     for (const [ingredient, num] of Object.entries(counts)) {
       setShoppingList((prevState) => [
         ...prevState,
-        { id: nextID++, produce: ingredient, count: num },
+        {
+          id: nextID++,
+          produce: ingredient,
+          count: `${num * Math.floor(user.household)} ${
+            Math.floor(user.household) > 1 ? "portions" : ""
+          }`,
+        },
       ]);
     }
     // Specify how to clean up after this effect:
@@ -33,10 +39,7 @@ export default function ShoppingList(props) {
       setShoppingList([]);
     };
   }, [props]);
-
-  // Multiply shopping list item numbers per household number
   console.log(shoppingList);
-
   return (
     <section className="shopping-list">
       <p className="title">Shopping List:</p>

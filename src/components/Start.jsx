@@ -22,7 +22,6 @@ export default function Start(props) {
   function handleSubmit(event) {
     event.preventDefault();
     // submitToApi(formData)
-    console.log(user);
     localStorage.setItem("user", JSON.stringify(user));
     props.createNewMeal();
   }
