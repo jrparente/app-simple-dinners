@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Dinners from "./components/Dinners";
-import Ingredients from "./components/Ingredients";
+import Ingredients from "./data/ingredients";
 import ShoppingList from "./components/ShoppingList";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -50,13 +50,26 @@ function App() {
 
   // Create a simple plate with 5 ingredients: 1 protein + 1 carb + 3 veg
   function makeDinner(proteins, carbs, vegs) {
-    return [
-      randomIngredient(proteins),
-      randomIngredient(carbs),
-      randomIngredient(vegs),
-      randomIngredient(vegs),
-      randomIngredient(vegs),
-    ];
+    // Make a copy of the vegs array to ensure no repetitions
+    const availableVegs = [...vegs];
+
+    const randomProtein = randomIngredient(proteins);
+    const randomCarb = randomIngredient(carbs);
+    const selectedVegs = [];
+
+    // Select 3 unique vegetables
+    for (let i = 0; i < 3; i++) {
+      const randomVeg = randomIngredient(availableVegs);
+      selectedVegs.push(randomVeg);
+
+      // Remove the selected vegetable from the availableVegs array
+      const index = availableVegs.indexOf(randomVeg);
+      if (index !== -1) {
+        availableVegs.splice(index, 1);
+      }
+    }
+
+    return [randomProtein, randomCarb, ...selectedVegs];
   }
 
   // Generate one random Meal from the bigMeals Array of objects

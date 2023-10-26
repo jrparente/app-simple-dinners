@@ -39,7 +39,7 @@ export default function ShoppingList(props) {
       setShoppingList([]);
     };
   }, [props]);
-  console.log(shoppingList);
+
   return (
     <section className="shopping-list">
       <p className="title">Shopping List:</p>
