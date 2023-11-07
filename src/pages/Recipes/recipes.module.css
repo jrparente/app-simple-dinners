@@ -1,0 +1,109 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.formGroup > input,
+.formGroup > textarea {
+  width: 100%;
+}
+
+.tab {
+  border-radius: 4px 4px 0px 0px;
+}
+
+.tab:hover {
+}
+
+.activeTab {
+  border-bottom: 1px solid black;
+}
+
+/* Styling for ingredient list */
+.formGroup > div {
+  margin-bottom: 10px;
+}
+
+.formGroup button[type="button"]:hover {
+  background-color: #d43f3f;
+}
+
+/* Additional styling for ingredient list, adjust as needed */
+.ingredientList {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.ingredientItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+/* Styling for tags and categories input fields */
+.formGroup input[type="text"]#tags,
+.formGroup input[type="text"]#categories {
+  width: 100%;
+}
+
+/* Ingredients */
+
+.ingredientItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ingredientInputs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ingredientInputs > input {
+  flex: 1;
+}
+
+.addButton,
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ff4949;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.removeButton {
+  max-width: 3rem;
+  height: 100%;
+}
+
+.addButton:hover,
+.removeButton:hover {
+  background-color: #d43f3f;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}

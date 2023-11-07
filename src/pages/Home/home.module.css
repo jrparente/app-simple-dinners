@@ -1,0 +1,29 @@
+/* Hero Container */
+
+.heroContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content Inside Container */
+.content {
+  grid-column: span 12;
+  @media (min-width: 1024px) {
+    grid-column: span 7;
+  }
+}
+
+/* Image */
+.image {
+  display: none;
+  @media (min-width: 1024px) {
+    display: block;
+    grid-column: span 5;
+  }
+}
