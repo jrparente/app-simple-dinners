@@ -25,19 +25,17 @@ Visit the live application [here](https://simple-dinner-generator.netlify.app/).
 
 - [x] **Meal Idea Generator:** Intelligent meal idea recommendations based on user preferences and available ingredients.
 
-- [ ] **Shopping List Creator:** Simplify grocery shopping with an automatically generated shopping list.
+- [ ] **Web Scraping Tool:** Streamline recipe addition by creating a web scraping tool. Users can add recipes by providing a URL, and the tool will extract ingredients, images, cooking steps, and other relevant details.
+
+- [ ] **AI-Powered Recipe Generator:** Integrate an AI-powered tool that generates meal or recipe ideas based on user input, such as the ingredients they have in their house.
+
+- [ ] **Shopping List Creator:** Allow users to dynamically generate shopping lists for their meal plans.
 
 ## Roadmap
 
 - [ ] **AI Image Generation for Generated Meals:** Enhance user experience by integrating AI image generation to provide visual representations of the generated meals.
 
 - [ ] **Enhanced Meal Instructions for Generated Meals:** Implement the OpenAI API to generate detailed cooking instructions for selected meals. This feature will not only suggest ingredients but also provide step-by-step cooking guidance.
-
-- [ ] **Web Scraping Tool:** Streamline recipe addition by creating a web scraping tool. Users can add recipes by providing a URL, and the tool will extract ingredients, images, cooking steps, and other relevant details.
-
-- [ ] **AI-Powered Recipe Generator:** Integrate an AI-powered tool that generates meal or recipe ideas based on user input, such as the ingredients they have in their house.
-
-- [ ] **Customized Shopping Lists:** Allow users to dynamically generate shopping lists for their meal plans.
 
 - [ ] **User Profile Creation:** Enable users to create a profile with personal information, including dietary preferences, allergies, and number of persons in their household. This information will be utilized when generating recipes, providing personalized meal suggestions and dynamically adjusting the shopping list to match their needs.
 
