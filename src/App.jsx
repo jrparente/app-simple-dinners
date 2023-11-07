@@ -5,6 +5,8 @@ import Auth from "./pages/Auth/Auth";
 import MealPlan from "./pages/MealPlan/MealPlan";
 import Profile from "./pages/Profile/Profile";
 import CreateRecipe from "./pages/Recipes/CreateRecipe";
+import RecipePage from "./pages/Recipes/RecipePage/[id]";
+
 // import Footer from "./components/Footer";
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
             <Route path="/create-recipe" element={<CreateRecipe />} />
             <Route path="/meal-plan" element={<MealPlan />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/recipe/:recipeId" element={<RecipePage />} />
           </Routes>
           {/* <Footer /> */}
         </div>

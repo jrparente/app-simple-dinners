@@ -9,6 +9,7 @@ import {
   PinOff,
   Trash,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function RecipeCard({ recipe, saveRecipe, isRecipeSaved }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -56,11 +57,13 @@ function RecipeCard({ recipe, saveRecipe, isRecipeSaved }) {
       </div>
 
       <div className={styles.imageContainer}>
-        <img
-          src={recipe.imageUrl || "recipe-image-placeholder.jpg"}
-          alt={recipe.name}
-          className={styles.recipeImage}
-        />
+        <Link to={`/recipe/${recipe._id}`}>
+          <img
+            src={recipe.imageUrl || "recipe-image-placeholder.jpg"}
+            alt={recipe.name}
+            className={styles.recipeImage}
+          />
+        </Link>
       </div>
 
       <div className={styles.recipeDetails}>
