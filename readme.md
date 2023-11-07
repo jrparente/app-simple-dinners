@@ -35,7 +35,7 @@ Visit the live application [here](https://simple-dinner-generator.netlify.app/).
 
 - [ ] **Web Scraping Tool:** Streamline recipe addition by creating a web scraping tool. Users can add recipes by providing a URL, and the tool will extract ingredients, images, cooking steps, and other relevant details.
 
-- [] **AI-Powered Recipe Generator:** Integrate an AI-powered tool that generates meal or recipe ideas based on user input, such as the ingredients they have in their house.
+- [ ] **AI-Powered Recipe Generator:** Integrate an AI-powered tool that generates meal or recipe ideas based on user input, such as the ingredients they have in their house.
 
 - [ ] **Customized Shopping Lists:** Allow users to dynamically generate shopping lists for their meal plans.
 
