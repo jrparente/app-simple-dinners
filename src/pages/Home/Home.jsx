@@ -39,7 +39,7 @@ function Home() {
       if (response.status !== 200) {
         throw new Error("Failed to save Recipe.");
       }
-      navigate("/saved-recipes");
+      navigate("/meal-plan");
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +56,7 @@ function Home() {
           throw new Error("Failed to fetch data.");
         }
 
-        setRecipes(response.data.reverse());
+        setRecipes(response.data);
 
         let uniqueCategories = [];
         recipes.forEach((recipe) => {

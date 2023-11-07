@@ -2,66 +2,55 @@
 
 A simple app to help get dinner ideas and generate shopping lists.
 
-Although there are many of these apps already out there, I find thatthe dinner ideas are not "simple" enough. I wanted something that would generate ideas for dinners with 1 protein, 1 carb and 3 vegs. Also, it includes one more "complicated" meal option per menu.
+The Simple Dinners Generator is an open-source meal planning app designed to simplify dinner decisions. Unlike many meal planning apps, our focus is on simplicity, flexibility and customization. This app enables users to add recipes, and to generate dinner ideas with 1 protein, 1 carb, and 3 vegetables.
 
-The app also generates a Shopping List for each Menu generated, and saves the generated menus in local storage.
+## Usage
 
-## Features
+Visit the live application [here](https://simple-dinner-generator.netlify.app/).
 
-- [x] Store ingredients in arrays
+## Technologies Used
 
-- [x] Select Random ingredients from a meal
+- React
+- CSS Modules
+- JavaScript
+- MongoDB
+- Express
+- Node.js
 
-- [x] Add and select entire meals alongside random ingredients
+## Key Features
 
-- [ ] Select varied proteins for the menu (prevent eating same protein type on all meals)
+- [x] **User Authentication:** Secure user registration, login, and profile management powered by MongoDB, jsonwebtoken, and bcryptjs.
 
-- [ ] Filter per dietary preferences: vegan
+- [x] **Recipe Management:** Full-featured recipe management with Create, Read, Update, and Delete (CRUD) operations.
 
-- [x] Generate a shopping list from all the required produce
+- [x] **Meal Idea Generator:** Intelligent meal idea recommendations based on user preferences and available ingredients.
 
-- [x] Render results in the DOM
-
-- [x] Create separate components for each reusable part of the code: ingredients data ✅, individual dinners ✅, shopping list ✅
-
-- [x] Save Generated Menus to Local Storage (and load them on refresh)
-
-- [x] Sidebar with all Menus saved in local storage. On click it displays the selected menu and ingredients for that menu.
-
-- [x] Ability to clear local storage
-
-- [x] Ability to delete selected Menus from the sidebar
+- [ ] **Shopping List Creator:** Simplify grocery shopping with an automatically generated shopping list.
 
 ## Roadmap
 
-### 🚨 Fix Bugs
+- [ ] **AI Image Generation for Generated Meals:** Enhance user experience by integrating AI image generation to provide visual representations of the generated meals.
 
-- [x] 🪳 Need to prevent duplicate vegs on the makedinner()
+- [ ] **Enhanced Meal Instructions for Generated Meals:** Implement the OpenAI API to generate detailed cooking instructions for selected meals. This feature will not only suggest ingredients but also provide step-by-step cooking guidance.
 
-- [x] 🪳 Problem with sidebar on mobile: when the user does not have anything stored in local storage, and generates the first meal on Mobile, the sidebar immediately appears (it shouldn't. It should just appear the button to toggle it), and it's pushed to the right side of the screen, instead of the left.
+- [ ] **Web Scraping Tool:** Streamline recipe addition by creating a web scraping tool. Users can add recipes by providing a URL, and the tool will extract ingredients, images, cooking steps, and other relevant details.
 
-### Short / Medium term features:
+- [] **AI-Powered Recipe Generator:** Integrate an AI-powered tool that generates meal or recipe ideas based on user input, such as the ingredients they have in their house.
 
-- [ ] Provide more information about the Big Meals - perhaps a link to a recipe, an separete the ingredients for this recipe in a separate shopping list?
+- [ ] **Customized Shopping Lists:** Allow users to dynamically generate shopping lists for their meal plans.
 
-- [x] Work on Mobile version (maybe toggle sidebar with a hamburguer icon?)
+- [ ] **User Profile Creation:** Enable users to create a profile with personal information, including dietary preferences, allergies, and number of persons in their household. This information will be utilized when generating recipes, providing personalized meal suggestions and dynamically adjusting the shopping list to match their needs.
 
-- [ ] Ability to choose number of dinners to generate
+- [ ] **User-Contributed Ingredients and Recipes:** Enable users to contribute ingredients to the Ingredients data.
 
-- [x] Ability for the user to insert the number of persons in household, and multiply the shopping list by that number of persons (the shopping list is currently per portion)
+- [ ] **Cooking Methods and Preferences:** Add cooking methods and preferred cooking options for each ingredient, offering more culinary versatility.
 
-- [ ] Ability for the user to add ingredients and big meals to the Ingredients data (ie: most used ingredients in a household)
+- [ ] **Ingredient Visuals:** Include images for ingredients, making the app more visually appealing.
 
-- [ ] Add cooking method (ie: steemed whitefish, grilled tuna steak, boiled eggs) And maybe prefered cooking methods for each ingredient?
+- [ ] **Ingredient Swapping:** Allow users to swap out ingredients in a menu to accommodate their preferences and dietary requirements.
 
-- [ ] Add images to ingredients?
+- [ ] **Shopping List Management:** Implement options for printing, sharing, or saving the shopping list to make grocery shopping more convenient.
 
-- [ ] Ability to Switch out ingredients in a menu
+- [ ] **Light/Dark Mode Toggle:** Add a light/dark mode toggle for improved usability in different lighting conditions.
 
-- [ ] Ability to print, share or save Shopping List to notes or tasks app
-
-### Long term features:
-
-- [ ] Light/dark mode toggle, in addition to the @media (prefers-color-scheme: light) in the CSS file
-
-- [ ] Ability to store information in a database
+- [x] **Database Integration for Scalability:** Explore options for storing information in a database to ensure scalability and efficient data management.
