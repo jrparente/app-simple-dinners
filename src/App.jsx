@@ -6,6 +6,7 @@ import MealPlan from "./pages/MealPlan/MealPlan";
 import Profile from "./pages/Profile/Profile";
 import CreateRecipe from "./pages/Recipes/CreateRecipe";
 import RecipePage from "./pages/Recipes/RecipePage/[id]";
+import EditRecipe from "./pages/Recipes/EditRecipe";
 
 // import Footer from "./components/Footer";
 
@@ -18,10 +19,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/recipe/:recipeId" element={<RecipePage />} />
             <Route path="/create-recipe" element={<CreateRecipe />} />
+            <Route path="/edit-recipe/:recipeId" element={<EditRecipe />} />
             <Route path="/meal-plan" element={<MealPlan />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/recipe/:recipeId" element={<RecipePage />} />
           </Routes>
           {/* <Footer /> */}
         </div>

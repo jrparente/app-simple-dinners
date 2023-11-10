@@ -15,12 +15,6 @@
   height: auto;
 }
 
-.recipeTitle {
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
 .recipeMeta {
   display: flex;
   gap: 0.8rem;

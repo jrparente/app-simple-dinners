@@ -23,26 +23,14 @@ function Home() {
     return savedRecipes.some((recipe) => recipe._id === id);
   };
 
-  const saveRecipe = async (recipeID) => {
-    try {
-      const response = await axios.put(
-        `${origin}/recipes`,
-        {
-          recipeID,
-          userID,
-        },
-        {
-          headers: { authorization: cookies.access_token },
-        }
-      );
+  const removeDeletedRecipe = (recipeID) => {
+    setRecipes((prevRecipes) =>
+      prevRecipes.filter((recipe) => recipe._id !== recipeID)
+    );
+  };
 
-      if (response.status !== 200) {
-        throw new Error("Failed to save Recipe.");
-      }
-      navigate("/meal-plan");
-    } catch (error) {
-      console.log(error);
-    }
+  const updateSavedRecipes = (newSavedRecipes) => {
+    setSavedRecipes(newSavedRecipes);
   };
 
   useEffect(() => {
@@ -104,7 +92,7 @@ function Home() {
       }
     };
     if (userID) fetchData();
-  }, []);
+  }, [recipes]);
 
   useEffect(() => {
     setFilteredRecipes(recipes);
@@ -152,8 +140,9 @@ function Home() {
               <RecipeCard
                 key={index}
                 recipe={recipe}
-                saveRecipe={saveRecipe}
                 isRecipeSaved={isSaved}
+                updateSavedRecipes={updateSavedRecipes}
+                removeDeletedRecipe={removeDeletedRecipe}
               />
             );
           })}

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styles from "./recipecard.module.css";
 import {
@@ -9,10 +10,91 @@ import {
   PinOff,
   Trash,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { Link, useNavigate } from "react-router-dom";
 
-function RecipeCard({ recipe, saveRecipe, isRecipeSaved }) {
+function RecipeCard({
+  recipe,
+  isRecipeSaved,
+  updateSavedRecipes,
+  removeDeletedRecipe,
+}) {
+  const origin = import.meta.env.VITE_REACT_APP_SERVER_URL || "";
+  const userID = window.localStorage.getItem("userID");
+  const [cookies, _] = useCookies(["access_token"]);
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const saveRecipe = async (recipeID) => {
+    try {
+      const response = await axios.put(
+        `${origin}/recipes/save`,
+        {
+          recipeID,
+          userID,
+        },
+        {
+          headers: { authorization: cookies.access_token },
+        }
+      );
+
+      if (response.status !== 200) {
+        throw new Error("Failed to save Recipe.");
+      }
+      console.log(response.data.savedRecipes);
+      navigate("/meal-plan");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const unsaveRecipe = async (recipeID) => {
+    try {
+      const response = await axios.put(
+        `${origin}/recipes/unsave`,
+        {
+          recipeID,
+          userID,
+        },
+        {
+          headers: { authorization: cookies.access_token },
+        }
+      );
+
+      if (response.status !== 200) {
+        throw new Error("Failed to unsave Recipe.");
+      }
+      console.log(response.data.savedRecipes);
+      updateSavedRecipes(response.data.savedRecipes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteRecipe = async (recipeID) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this recipe?"
+    );
+
+    console.log("confirmDelete", confirmDelete, recipeID);
+
+    if (confirmDelete) {
+      try {
+        const response = await axios.delete(`${origin}/recipes/${recipeID}`, {
+          headers: { authorization: cookies.access_token },
+        });
+        console.log(response);
+
+        if (response.status !== 200) {
+          throw new Error("Failed to delete Recipe.");
+        }
+
+        removeDeletedRecipe(recipeID);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <div className={styles.recipeCard}>
@@ -31,7 +113,10 @@ function RecipeCard({ recipe, saveRecipe, isRecipeSaved }) {
               <li
                 className={styles.recipeMenuOptionsItem}
                 role="button"
-                onClick={() => saveRecipe(recipe._id)}
+                onClick={() => {
+                  saveRecipe(recipe._id);
+                  setShowMenu(false);
+                }}
               >
                 <Pin style={{ width: "18px", height: "18px" }} /> Save Recipe
               </li>
@@ -40,16 +125,33 @@ function RecipeCard({ recipe, saveRecipe, isRecipeSaved }) {
               <li
                 className={styles.recipeMenuOptionsItem}
                 role="button"
-                onClick={() => {}}
+                onClick={() => {
+                  unsaveRecipe(recipe._id);
+                  setShowMenu(false);
+                }}
               >
                 <PinOff style={{ width: "18px", height: "18px" }} /> Unsave
                 Recipe
               </li>
             )}
-            <li className={styles.recipeMenuOptionsItem} role="button">
+            <li
+              className={styles.recipeMenuOptionsItem}
+              role="button"
+              onClick={() => {
+                setShowMenu(false);
+                navigate(`/edit-recipe/${recipe._id}`);
+              }}
+            >
               <Pencil style={{ width: "18px", height: "18px" }} /> Edit Recipe
             </li>
-            <li className={styles.recipeMenuOptionsItem} role="button">
+            <li
+              className={styles.recipeMenuOptionsItem}
+              role="button"
+              onClick={() => {
+                deleteRecipe(recipe._id);
+                setShowMenu(false);
+              }}
+            >
               <Trash style={{ width: "18px", height: "18px" }} /> Delete Recipe
             </li>
           </ul>

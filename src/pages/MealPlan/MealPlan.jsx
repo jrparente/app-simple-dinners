@@ -10,6 +10,16 @@ function MealPlan() {
   const origin = import.meta.env.VITE_REACT_APP_SERVER_URL || "";
   const [savedRecipes, setSavedRecipes] = useState([]);
 
+  const updateSavedRecipes = (newSavedRecipes) => {
+    setSavedRecipes(newSavedRecipes);
+  };
+
+  const removeDeletedRecipe = (recipeID) => {
+    setSavedRecipes((prevRecipes) =>
+      prevRecipes.filter((recipe) => recipe._id !== recipeID)
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,13 +45,21 @@ function MealPlan() {
   return (
     <div className="container">
       <h2>Meal Plan</h2>
-      {savedRecipes &&
-        savedRecipes.length > 0 &&
+      {savedRecipes && savedRecipes.length > 0 ? (
         savedRecipes
           .reverse()
           .map((recipe, index) => (
-            <RecipeCard key={index} recipe={recipe} isRecipeSaved={true} />
-          ))}
+            <RecipeCard
+              key={index}
+              recipe={recipe}
+              isRecipeSaved={true}
+              updateSavedRecipes={updateSavedRecipes}
+              removeDeletedRecipe={removeDeletedRecipe}
+            />
+          ))
+      ) : (
+        <p>No recipes yet.</p>
+      )}
     </div>
   );
 }

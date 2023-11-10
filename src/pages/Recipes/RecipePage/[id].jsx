@@ -42,7 +42,7 @@ function RecipePage() {
         <div className="container">
           {recipe ? (
             <>
-              <h1 className={styles.recipeTitle}>{recipe.name}</h1>
+              <h2>{recipe.name}</h2>
               <div className={styles.recipeDetails}>
                 <img
                   src={recipe.imageUrl}
@@ -111,7 +111,7 @@ function RecipePage() {
             </>
           ) : (
             <>
-              <h1>Recipe Page</h1>
+              <h2>Recipe Page</h2>
               <p>Text</p>
             </>
           )}
