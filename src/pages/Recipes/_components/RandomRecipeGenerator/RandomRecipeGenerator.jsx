@@ -14,18 +14,30 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
 
   const makeDinner = () => {
     const ingredients = [];
+    const selectedVegs = [];
+    const remainingVegs = [...vegs];
+
+    // Add 1 protein and 1 carb
     ingredients.push(
       { name: getRandomIngredient(proteins) },
-      { name: getRandomIngredient(carbs) },
-      { name: getRandomIngredient(vegs) },
-      { name: getRandomIngredient(vegs) },
-      { name: getRandomIngredient(vegs) }
+      { name: getRandomIngredient(carbs) }
     );
-    console.log("dinner is served:", ingredients);
+
+    // Select 3 different vegetables
+    for (let i = 0; i < 3; i++) {
+      const randomVeg = getRandomIngredient(remainingVegs);
+      selectedVegs.push({ name: randomVeg });
+      // Remove the selected vegetable from the copy to avoid duplicates
+      remainingVegs.splice(remainingVegs.indexOf(randomVeg), 1);
+    }
+
+    // Add vegetables
+    ingredients.push(...selectedVegs);
+
     setDinnerIngredients(ingredients);
 
     setDinner({
-      name: `${ingredients[0].name} with ${ingredients[1].name} and Fresh Vegetable Medley`,
+      name: `${ingredients[0].name} with ${ingredients[1].name} & ${ingredients[2].name}, ${ingredients[3].name} and ${ingredients[4].name}`,
       ingredients: ingredients,
       instructions: "",
       imageUrl: "",
