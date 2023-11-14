@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import AddNewRecipeForm from "./_components/AddNewRecipeForm/AddNewRecipeForm";
-import Loading from "../../components/Loading/Loading";
+import Loading from "../../../components/Loading/Loading";
 
 function EditRecipe() {
   const params = useParams();

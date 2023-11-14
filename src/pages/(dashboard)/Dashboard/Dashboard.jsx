@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import RecipeCard from "../Recipes/_components/RecipeCard/RecipeCard";
-import Loading from "../../components/Loading/Loading";
+import Loading from "../../../components/Loading/Loading";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import styles from "./home.module.css";
+import styles from "./dashboard.module.css";
 
-function Home() {
+function Dashboard() {
   const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars
   const [cookies, _] = useCookies(["access_token"]);
@@ -186,4 +186,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Dashboard;

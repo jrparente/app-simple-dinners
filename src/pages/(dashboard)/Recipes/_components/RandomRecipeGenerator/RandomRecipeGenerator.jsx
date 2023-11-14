@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../recipes.module.css";
-import { ingredients } from "../../../../data/ingredients";
+import { ingredients } from "../../../../../data/ingredients";
 import { Sparkles } from "lucide-react";
 
 function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {

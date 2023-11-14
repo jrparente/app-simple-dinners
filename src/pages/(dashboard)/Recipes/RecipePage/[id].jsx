@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loading from "../../../components/Loading/Loading";
+import Loading from "../../../../components/Loading/Loading";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import styles from "./RecipePage.module.css";
+
 import { Clock, Gauge } from "lucide-react";
 
 function RecipePage() {
@@ -44,11 +45,13 @@ function RecipePage() {
             <>
               <h2>{recipe.name}</h2>
               <div className={styles.recipeDetails}>
-                <img
-                  src={recipe.imageUrl}
-                  alt={recipe.name}
-                  className={styles.recipeImage}
-                />
+                <div className={styles.imageContainer}>
+                  <img
+                    src={recipe.imageUrl || "../recipe-image-placeholder.jpg"}
+                    alt={recipe.name}
+                    className={styles.recipeImage}
+                  />
+                </div>
                 <div className={styles.recipeInfo}>
                   <div className={styles.recipeMeta}>
                     {recipe.cookingTime > 0 && (
@@ -84,8 +87,12 @@ function RecipePage() {
                         key={ingredient._id}
                         className={styles.ingredientsItem}
                       >
-                        <strong>{ingredient.name}</strong>:{" "}
-                        {ingredient.quantity} {ingredient.unit}
+                        <strong>{ingredient.name}</strong>
+                        {ingredient.quantity && (
+                          <span>
+                            : {ingredient.quantity} {ingredient.unit}
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -104,16 +111,19 @@ function RecipePage() {
                   )}
                 </div>
               </div>
-              <div className={styles.instructions}>
-                <h2>Instructions:</h2>
-                <p>{recipe.instructions}</p>
+              {recipe.instructions && (
+                <div className={styles.instructions}>
+                  <h2>Instructions:</h2>
+                  <p>{recipe.instructions}</p>
+                </div>
+              )}
+              <div className="flex gap-2 flex-wrap my-5">
+                <button>Edit Recipe</button>
+                <button>Delete Recipe</button>
               </div>
             </>
           ) : (
-            <>
-              <h2>Recipe Page</h2>
-              <p>Text</p>
-            </>
+            <Loading />
           )}
         </div>
       )}

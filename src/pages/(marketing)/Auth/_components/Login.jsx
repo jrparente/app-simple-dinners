@@ -33,7 +33,7 @@ function Login() {
 
         setCookies("access_token", response.data.token);
         window.localStorage.setItem("userID", response.data.userID);
-        navigate("/");
+        navigate("/dashboard");
       } else {
         setError("Login failed. Please check your credentials.");
       }

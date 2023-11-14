@@ -2,17 +2,44 @@
   display: flex;
   gap: 2rem;
   align-items: start;
+  flex-direction: column;
+  height: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+
+  @media (min-width: 768px) {
+    flex: 1;
+    max-height: 550px;
+  }
+}
+
+.recipeImage {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .recipeInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
 
-.recipeImage {
-  max-width: 100%;
-  height: auto;
+  @media (min-width: 768px) {
+    flex: 2;
+  }
 }
 
 .recipeMeta {

@@ -7,7 +7,7 @@ function Auth() {
   const [showRegister, setShowRegister] = useState(false);
 
   return (
-    <div className="container flex flex-col">
+    <div className="container flex flex-col" style={{ marginTop: "4rem" }}>
       {!showRegister ? (
         <>
           <Login />
