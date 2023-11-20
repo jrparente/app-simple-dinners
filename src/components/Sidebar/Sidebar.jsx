@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./sidebar.module.css";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { LogOut, Plus, User, Utensils, Soup } from "lucide-react";
+import { LogOut, Plus, User, Utensils, Soup, ChevronLeft } from "lucide-react";
 
-function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
   const navigate = useNavigate();
   const [cookies, setCookies] = useCookies(["access_token"]);
   const params = useLocation();
-
-  console.log(params.pathname);
 
   const logout = () => {
     setCookies("access_token", "");
@@ -27,11 +24,21 @@ function Sidebar() {
   };
 
   return (
-    <aside className={styles.sidebar} aria-label="Sidebar">
-      <div>
+    <aside
+      className={`${isMobile && styles.mobileSidebar} ${styles.sidebar}`}
+      aria-label="Sidebar"
+    >
+      <div className="flex w-full align-center">
         <NavLink to="/" className={styles.logo}>
           Meal Plan Generator
         </NavLink>
+        <div
+          role="button"
+          onClick={() => collapseSidebar()}
+          className="iconButton"
+        >
+          {isSidebarOpen && <ChevronLeft />}
+        </div>
       </div>
       <ul className={styles.nav}>
         <li>
@@ -75,7 +82,7 @@ function Sidebar() {
           </NavLink>
         </li>
         <li
-          className={`${styles.logoutButton} ${styles.menuLink}`}
+          className={`${styles.menuLink}`}
           onClick={handleLogout}
           role="button"
         >
