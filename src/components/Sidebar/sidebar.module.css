@@ -3,11 +3,16 @@
   top: 0;
   left: 0;
   z-index: 40;
-  width: 16rem;
+  width: 20rem;
   height: 100%;
   padding-top: 2rem;
   transition: transform 0.3s ease;
   background-color: #1b1b1b;
+
+}
+
+.mobileSidebar {
+  width: 100%;
 }
 
 .logo {
@@ -15,6 +20,7 @@
   font-weight: 600;
   color: #e3e3e3;
   padding: 0.6rem;
+  margin-right: auto;
 }
 
 .nav {

@@ -20,9 +20,11 @@
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -49,6 +51,7 @@ a {
   color: var(--primary-color);
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -82,7 +85,7 @@ ul {
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 16rem;
+
 }
 
 /* Utility Classes */
@@ -129,12 +132,18 @@ ul {
 }
 
 .my-5 {
-  margin-top: 1.25rem; /* 20px */
-  margin-bottom: 1.25rem; /* 20px */
+  margin-top: 1.25rem;
+  /* 20px */
+  margin-bottom: 1.25rem;
+  /* 20px */
 }
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .align-center {
@@ -156,16 +165,19 @@ ul {
 
 .sr-only {
   border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  /* 1 */
   -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
+  clip-path: inset(50%) !important;
+  /* 2 */
   height: 1px !important;
   margin: -1px !important;
   overflow: hidden !important;
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
-  white-space: nowrap !important; /* 3 */
+  white-space: nowrap !important;
+  /* 3 */
 }
 
 .hide {
@@ -189,10 +201,23 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: var(--primary-color);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+  padding: .5rem;
+  background-color: #2c2c2c;
+  border-radius: 5px;
+  margin-right: .5rem;
 }
