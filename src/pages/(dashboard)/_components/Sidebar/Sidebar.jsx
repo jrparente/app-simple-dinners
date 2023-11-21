@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./sidebar.module.css";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { LogOut, Plus, User, Utensils, Soup, ChevronLeft } from "lucide-react";
+import styles from "./Sidebar.module.css";
 
 function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
   const navigate = useNavigate();
@@ -40,6 +40,7 @@ function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
           {isSidebarOpen && <ChevronLeft />}
         </div>
       </div>
+
       <ul className={styles.nav}>
         <li>
           <NavLink
