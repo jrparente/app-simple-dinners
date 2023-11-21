@@ -1,7 +1,7 @@
 import React from "react";
 import { ChevronsRight } from "lucide-react";
-import styles from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
+import styles from "./Nav.module.css";
 
 function Nav({ isSidebarOpen, resetSidebar }) {
   if (isSidebarOpen) return null;
