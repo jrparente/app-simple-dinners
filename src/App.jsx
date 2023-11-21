@@ -1,18 +1,21 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useCookies } from "react-cookie";
+
 import Footer from "./components/Footer/Footer";
-import Sidebar from "./components/Sidebar/Sidebar";
+
 import Home from "./pages/(marketing)/Home/Home";
 import Auth from "./pages/(marketing)/Auth/Auth";
+import Header from "./pages/(marketing)/_components/Header/Header";
+
 import MealPlan from "./pages/(dashboard)/MealPlan/MealPlan";
 import Profile from "./pages/(dashboard)/Profile/Profile";
 import CreateRecipe from "./pages/(dashboard)/Recipes/CreateRecipe";
 import RecipePage from "./pages/(dashboard)/Recipes/RecipePage/[id]";
 import EditRecipe from "./pages/(dashboard)/Recipes/EditRecipe";
 import Dashboard from "./pages/(dashboard)/Dashboard/Dashboard";
-import Header from "./pages/(marketing)/_components/Header/Header";
-import { useEffect, useState } from "react";
-import Nav from "./components/Nav/Nav";
+import Sidebar from "./pages/(dashboard)/_components/Sidebar/Sidebar";
+import Nav from "./pages/(dashboard)/_components/Nav/Nav";
 
 function App() {
   const [cookies, setCookies] = useCookies(["access_token"]);
