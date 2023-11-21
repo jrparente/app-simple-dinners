@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { LogOut, Plus, User, Utensils, Soup, ChevronLeft } from "lucide-react";
-import styles from "./Sidebar.module.css";
 
 function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
   const navigate = useNavigate();
@@ -25,11 +24,11 @@ function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
 
   return (
     <aside
-      className={`${isMobile && styles.mobileSidebar} ${styles.sidebar}`}
+      className={`${isMobile && "styles.mobileSidebar"} ${"sidebar"}`}
       aria-label="Sidebar"
     >
       <div className="flex w-full align-center">
-        <NavLink to="/" className={styles.logo}>
+        <NavLink to="/" className={"logo"}>
           Meal Plan Generator
         </NavLink>
         <div
@@ -41,53 +40,49 @@ function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
         </div>
       </div>
 
-      <ul className={styles.nav}>
+      <ul className={"nav"}>
         <li>
           <NavLink
             to="/create-recipe"
-            className={`${styles.menuLink} ${
-              params.pathname === "/create-recipe" && styles.active
+            className={`${"menuLink"} ${
+              params.pathname === "/create-recipe" && "active"
             }`}
           >
-            <Plus className={styles.linkIcon} /> Add New Recipe
+            <Plus className={"linkIcon"} /> Add New Recipe
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/dashboard"
-            className={`${styles.menuLink} ${
-              params.pathname === "/dashboard" && styles.active
+            className={`${"menuLink"} ${
+              params.pathname === "/dashboard" && "active"
             }`}
           >
-            <Soup className={styles.linkIcon} /> View All Recipes
+            <Soup className={"linkIcon"} /> View All Recipes
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/meal-plan"
-            className={`${styles.menuLink} ${
-              params.pathname === "/meal-plan" && styles.active
+            className={`${"menuLink"} ${
+              params.pathname === "/meal-plan" && "active"
             }`}
           >
-            <Utensils className={styles.linkIcon} /> Meal Plan
+            <Utensils className={"linkIcon"} /> Meal Plan
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/profile"
-            className={`${styles.menuLink} ${
-              params.pathname === "/profile" && styles.active
+            className={`${"menuLink"} ${
+              params.pathname === "/profile" && "active"
             }`}
           >
-            <User className={styles.linkIcon} /> Profile
+            <User className={"linkIcon"} /> Profile
           </NavLink>
         </li>
-        <li
-          className={`${styles.menuLink}`}
-          onClick={handleLogout}
-          role="button"
-        >
-          <LogOut className={styles.linkIcon} />
+        <li className={`${"menuLink"}`} onClick={handleLogout} role="button">
+          <LogOut className={"linkIcon"} />
           Logout
         </li>
       </ul>
