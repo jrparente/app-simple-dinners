@@ -219,7 +219,6 @@ button:focus-visible {
   padding: .5rem;
   background-color: #2c2c2c;
   border-radius: 5px;
-  margin-right: .5rem;
 }
 
 /* Sidebar */
@@ -231,6 +230,7 @@ button:focus-visible {
   width: 20rem;
   height: 100%;
   padding-top: 2rem;
+  padding-inline: 1rem;
   transition: transform 0.3s ease;
   background-color: #1b1b1b;
 
@@ -241,11 +241,12 @@ button:focus-visible {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 2vw +1rem, 4rem);
   font-weight: 600;
   color: #e3e3e3;
   padding: 0.6rem;
   margin-right: auto;
+  background-color: transparent;
 }
 
 .nav {
@@ -261,14 +262,9 @@ button:focus-visible {
   align-items: center;
   width: 100%;
   padding: 0.6rem;
-  color: #e3e3e3;
+  color: #a1a1a1;
   cursor: pointer;
-}
-
-.menuLink:hover {
-  background-color: #2c2c2c;
   border-radius: 5px;
-  color: #e3e3e3;
 }
 
 .linkIcon {
@@ -281,6 +277,26 @@ button:focus-visible {
   background-color: #2c2c2c;
   border-radius: 5px;
   color: #e3e3e3;
+}
+
+.logoutButton {
+  padding: 0.6rem;
+  width: 100%;
+  color: #e3e3e3;
+  cursor: pointer;
+  background-color: rgba(36, 36, 36, 0.9);
+  border: var(--border);
+  border-radius: 5px;
+}
+
+.logoutButton:hover,
+.menuLink:hover {
+
+  color: #e3e3e3;
+}
+
+.logoutButton:hover {
+  background-color: #2c2c2c;
 }
 
 /* Navbar */

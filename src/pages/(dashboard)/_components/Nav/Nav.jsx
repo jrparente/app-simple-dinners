@@ -10,7 +10,7 @@ function Nav({ isSidebarOpen, resetSidebar }) {
       <div role="button" onClick={() => resetSidebar()} className="iconButton">
         <ChevronsRight />
       </div>
-      <NavLink to="/" className={"logo"}>
+      <NavLink to="/dashboard" className={"logo"}>
         Meal Plan Generator
       </NavLink>
     </nav>

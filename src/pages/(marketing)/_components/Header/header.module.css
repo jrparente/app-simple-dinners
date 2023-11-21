@@ -13,9 +13,7 @@
   border-bottom: var(--border);
   padding: 10px 20px;
 
-  @media (max-width: 576px) {
-    display: none;
-  }
+
 }
 
 .nav {
@@ -31,7 +29,17 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.87);
-  margin-right: auto;
+
+
+  @media (max-width: 576px) {
+    display: none;
+  }
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 .navLinks a {

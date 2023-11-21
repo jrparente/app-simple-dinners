@@ -1,13 +1,16 @@
 .authContainer {
   width: 100%;
+  max-width: 28rem;
   margin-inline: auto;
   margin-top: 32px;
-  width: 100%;
+
   padding: 20px;
-  border: 1px solid #ccc;
+
   border-radius: 5px;
   text-align: center;
+
   @media (min-width: 640px) {
+    border: var(--border);
     max-width: 28rem;
   }
 }

@@ -1,26 +1,19 @@
 import React from "react";
 import styles from "./header.module.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
-  const userID = window.localStorage.getItem("userID");
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <NavLink to="/" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           Meal Plan Generator
-        </NavLink>
+        </Link>
 
         <div className={styles.navLinks}>
-          {!userID ? (
-            <NavLink to="/auth" className={styles.loginBtn}>
-              Log in
-            </NavLink>
-          ) : (
-            <NavLink to="/dashboard" className={styles.getStartedBtn}>
-              Get started
-            </NavLink>
-          )}
+          <NavLink to="/auth" className={styles.loginBtn}>
+            Log in
+          </NavLink>
         </div>
       </nav>
     </header>
