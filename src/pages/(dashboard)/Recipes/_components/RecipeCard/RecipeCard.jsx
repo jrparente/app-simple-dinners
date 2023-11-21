@@ -76,8 +76,6 @@ function RecipeCard({
       "Are you sure you want to delete this recipe?"
     );
 
-    console.log("confirmDelete", confirmDelete, recipeID);
-
     if (confirmDelete) {
       try {
         const response = await axios.delete(`${origin}/recipes/${recipeID}`, {

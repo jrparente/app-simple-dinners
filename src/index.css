@@ -289,9 +289,8 @@ button:focus-visible {
   border-radius: 5px;
 }
 
-.logoutButton:hover,
-.menuLink:hover {
 
+.menuLink:hover {
   color: #e3e3e3;
 }
 
