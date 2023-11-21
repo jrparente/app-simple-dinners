@@ -23,7 +23,6 @@ function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const collapseSidebar = () => {
-    console.log("clicked collapseSidebar");
     if (isSidebarOpen) {
       setIsSidebarOpen(false);
     } else {
