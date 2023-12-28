@@ -28,9 +28,9 @@ function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
       aria-label="Sidebar"
     >
       <div className="flex w-full align-center">
-        <NavLink to="/dashboard" className={"logo"}>
+        <a href="/dashboard" className={"logo"}>
           Meal Plan Generator
-        </NavLink>
+        </a>
         <div
           role="button"
           onClick={() => collapseSidebar()}
@@ -81,11 +81,7 @@ function Sidebar({ isMobile, isSidebarOpen, collapseSidebar }) {
             <User className={"linkIcon"} /> Profile
           </NavLink>
         </li>
-        <li
-          className={`${"logoutButton"}`}
-          onClick={handleLogout}
-          role="button"
-        >
+        <li className={`${"menuLink"}`} onClick={handleLogout} role="button">
           <LogOut className={"linkIcon"} />
           Logout
         </li>
