@@ -90,14 +90,42 @@ function AddNewRecipeForm({ handleSubmit, recipeData, setRecipeData, error }) {
 
       <div className={styles.formGroup}>
         <label htmlFor="instructions">Instructions: </label>
-        <textarea
-          id="instructions"
-          placeholder="Recipe Instructions"
-          value={recipeData.instructions}
-          onChange={(e) =>
-            setRecipeData({ ...recipeData, instructions: e.target.value })
-          }
-        />
+        {recipeData.instructions.map((instruction, index) => (
+          <div className={styles.ingredientItem} key={index}>
+            {index >= 0 && (
+              <div className={styles.ingredientInputs}>
+                <input
+                  type="text"
+                  placeholder="Instruction"
+                  value={instruction}
+                  onChange={(e) => {
+                    const newInstruction = [...recipeData.instructions];
+                    newInstruction[index] = e.target.value;
+                    setRecipeData({
+                      ...recipeData,
+                      instructions: newInstruction,
+                    });
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => handleRemoveItem("instructions", index)}
+                  className={styles.removeButton}
+                >
+                  <Trash />
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+        <button
+          type="button"
+          onClick={() => handleAddItem("instructions")}
+          className={styles.addButton}
+        >
+          <PlusCircle className={styles.icon} />
+          Add Instruction Step
+        </button>
       </div>
 
       <div className={styles.formGroup}>

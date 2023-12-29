@@ -80,11 +80,15 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
 
       const imageUrl = await generateImage();
       const recipeInstructions = await generateRecipeInstructions();
+      console.log("recipeInstructions", recipeInstructions);
+      const instructionsArray = JSON.parse(
+        recipeInstructions.recipeInstructions
+      );
 
       setDinner((prevDinner) => ({
         ...prevDinner,
         imageUrl: imageUrl,
-        instructions: recipeInstructions.recipeInstructions,
+        instructions: instructionsArray,
       }));
 
       setDataLoaded(true);
@@ -132,6 +136,8 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
       userOwner: userOwnerId,
     });
   };
+
+  if (dataLoaded && dinner.imageUrl) console.log("dinner", dinner);
 
   return (
     <div className="flex flex-col gap-2">
@@ -188,10 +194,10 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
 
             <div className={styles.recipeInstructions}>
               <h4>Instructions:</h4>
-              {dinner.instructions ? (
+              {dinner.instructions && dinner.instructions.length > 0 ? (
                 <ol>
-                  {JSON.parse(dinner.instructions).map((step, index) => (
-                    <li key={index}>{step}</li>
+                  {dinner.instructions.map((step, index) => (
+                    <li key={index}>{step.step}</li>
                   ))}
                 </ol>
               ) : (

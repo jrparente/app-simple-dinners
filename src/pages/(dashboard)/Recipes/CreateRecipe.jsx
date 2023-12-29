@@ -18,7 +18,7 @@ function CreateRecipe({ isSidebarOpen }) {
   const [recipeData, setRecipeData] = useState({
     name: "",
     ingredients: [],
-    instructions: "",
+    instructions: [],
     imageUrl: "",
     cookingTime: 0,
     categories: [],
@@ -61,7 +61,7 @@ function CreateRecipe({ isSidebarOpen }) {
       setRecipeData({
         name: "",
         ingredients: [],
-        instructions: "",
+        instructions: [],
         imageUrl: "",
         cookingTime: 0,
         categories: [],
