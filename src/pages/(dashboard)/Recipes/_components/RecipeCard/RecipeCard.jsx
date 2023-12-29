@@ -193,6 +193,20 @@ function RecipeCard({
             ))}
           </ul>
         </div>
+        <div className={styles.recipeInstructions}>
+          <h4>Instructions:</h4>
+          {recipe.instructions && recipe.instructions.length > 0 ? (
+            <ol>
+              {recipe.instructions.map((step, index) => (
+                <li key={index}>{step.step}</li>
+              ))}
+            </ol>
+          ) : (
+            <p>
+              <em>Coming soon...</em>
+            </p>
+          )}
+        </div>
         {recipe.tags && recipe.tags.length > 0 && (
           <div className={styles.recipeTags}>
             <ul>
