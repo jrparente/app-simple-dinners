@@ -33,9 +33,9 @@ Visit the live application [here](https://simple-dinner-generator.netlify.app/).
 
 ## Roadmap
 
-- [ ] **AI Image Generation for Generated Meals:** Enhance user experience by integrating AI image generation to provide visual representations of the generated meals.
+- [x] **AI Image Generation for Generated Meals:** Enhance user experience by integrating AI image generation to provide visual representations of the generated meals.
 
-- [ ] **Enhanced Meal Instructions for Generated Meals:** Implement the OpenAI API to generate detailed cooking instructions for selected meals. This feature will not only suggest ingredients but also provide step-by-step cooking guidance.
+- [x] **Enhanced Meal Instructions for Generated Meals:** Implement the OpenAI API to generate detailed cooking instructions for selected meals.
 
 - [ ] **User Profile Creation:** Enable users to create a profile with personal information, including dietary preferences, allergies, and number of persons in their household. This information will be utilized when generating recipes, providing personalized meal suggestions and dynamically adjusting the shopping list to match their needs.
 

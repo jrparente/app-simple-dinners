@@ -33,14 +33,14 @@ function CreateRecipe({ isSidebarOpen }) {
       await axios.post(`${origin}/recipes`, recipe, {
         headers: { authorization: cookies.access_token },
       });
-      setMessage("Recipe created successfully!");
+      setMessage("Recipe saved successfully!");
       setError(null);
 
       setTimeout(() => {
-        navigate("/");
+        navigate("/dashboard");
       }, 2000);
     } catch (error) {
-      setError("Error creating recipe.");
+      setError("Error saving recipe.");
       console.error(error);
     }
   };
@@ -114,10 +114,17 @@ function CreateRecipe({ isSidebarOpen }) {
               />
             </>
           ) : recipeType === "random" ? (
-            <RandomRecipeGenerator
-              saveRecipe={saveRecipe}
-              userOwnerId={userOwnerId}
-            />
+            <>
+              <RandomRecipeGenerator
+                saveRecipe={saveRecipe}
+                userOwnerId={userOwnerId}
+              />
+              {error && (
+                <p>
+                  <em>{error}</em>
+                </p>
+              )}
+            </>
           ) : null}
         </>
       )}

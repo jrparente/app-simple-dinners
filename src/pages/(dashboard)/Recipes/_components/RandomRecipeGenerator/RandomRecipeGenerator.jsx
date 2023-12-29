@@ -10,10 +10,6 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const getRandomIngredient = (array) => {
-    return array[Math.floor(Math.random() * array.length)];
-  };
-
   async function generateImage() {
     try {
       const response = await fetch(
@@ -42,17 +38,61 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
     }
   }
 
+  async function generateRecipeInstructions() {
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_REACT_APP_SERVER_URL
+        }/openAiApi/generateRecipeInstructions`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: `Recipe name: ${
+              dinner.name
+            }. Ingredients: ${dinner.ingredients.join(", ")}. Instructions:`,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Parse the response as JSON
+      const recipeInstructions = await response.json();
+
+      return recipeInstructions;
+    } catch (error) {
+      console.error("Error generating recipe instructions:", error);
+    }
+  }
+
+  const getRandomIngredient = (array) => {
+    return array[Math.floor(Math.random() * array.length)];
+  };
+
   useEffect(() => {
-    const fetchImage = async () => {
+    const fetchGenerations = async () => {
       setLoading(true);
+
       const imageUrl = await generateImage();
-      setDinner((prevDinner) => ({ ...prevDinner, imageUrl }));
+      const recipeInstructions = await generateRecipeInstructions();
+
+      setDinner((prevDinner) => ({
+        ...prevDinner,
+        imageUrl: imageUrl,
+        instructions: recipeInstructions.recipeInstructions,
+      }));
+
       setDataLoaded(true);
       setLoading(false);
     };
 
     if (dinner.name && !dataLoaded) {
-      fetchImage();
+      fetchGenerations();
     }
   }, [dinner, dataLoaded]);
 
@@ -84,6 +124,7 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
       name: `${ingredients[0].name} with ${ingredients[1].name} & ${ingredients[2].name}, ${ingredients[3].name} and ${ingredients[4].name}`,
       ingredients: ingredients,
       instructions: "",
+      imageUrl: "",
       cookingTime: 0,
       categories: [],
       difficulty: "Easy",
@@ -147,9 +188,17 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
 
             <div className={styles.recipeInstructions}>
               <h4>Instructions:</h4>
-              <p>
-                <em>Coming soon...</em>
-              </p>
+              {dinner.instructions ? (
+                <ol>
+                  {JSON.parse(dinner.instructions).map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
+                </ol>
+              ) : (
+                <p>
+                  <em>Coming soon...</em>
+                </p>
+              )}
             </div>
 
             <button
