@@ -19,7 +19,8 @@ function RecipeCard({
   updateSavedRecipes,
   removeDeletedRecipe,
 }) {
-  const origin = import.meta.env.VITE_REACT_APP_SERVER_URL || "";
+  const origin =
+    import.meta.env.VITE_REACT_APP_SERVER_URL || "http://localhost:3001";
   const userID = window.localStorage.getItem("userID");
   const [cookies, _] = useCookies(["access_token"]);
   const [showMenu, setShowMenu] = useState(false);

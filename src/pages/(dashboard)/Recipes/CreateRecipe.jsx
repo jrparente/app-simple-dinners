@@ -6,7 +6,7 @@ import { useCookies } from "react-cookie";
 import AddNewRecipeForm from "./_components/AddNewRecipeForm/AddNewRecipeForm";
 import RandomRecipeGenerator from "./_components/RandomRecipeGenerator/RandomRecipeGenerator";
 
-function CreateRecipe() {
+function CreateRecipe({ isSidebarOpen }) {
   const navigate = useNavigate();
   const origin = import.meta.env.VITE_REACT_APP_SERVER_URL || "";
   const userOwnerId = window.localStorage.getItem("userID");
@@ -100,7 +100,7 @@ function CreateRecipe() {
               }`}
               onClick={() => setRecipeType("random")}
             >
-              Random Recipe
+              Generate Recipe
             </button>
           </div>
           {recipeType === "manual" ? (

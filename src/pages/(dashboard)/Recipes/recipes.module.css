@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 4rem auto 0 auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -14,8 +14,8 @@
   margin-bottom: 20px;
 }
 
-.formGroup > input,
-.formGroup > textarea {
+.formGroup>input,
+.formGroup>textarea {
   width: 100%;
 }
 
@@ -23,15 +23,14 @@
   border-radius: 4px 4px 0px 0px;
 }
 
-.tab:hover {
-}
+.tab:hover {}
 
 .activeTab {
   border-bottom: 1px solid black;
 }
 
 /* Styling for ingredient list */
-.formGroup > div {
+.formGroup>div {
   margin-bottom: 10px;
 }
 
@@ -75,7 +74,7 @@
   gap: 1rem;
 }
 
-.ingredientInputs > input {
+.ingredientInputs>input {
   flex: 1;
 }
 
@@ -106,4 +105,90 @@
 .icon {
   width: 18px;
   height: 18px;
+}
+
+/* Recipe Card */
+.recipeCard {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 992px;
+
+  @media (min-width: 992px) {
+    flex: 1;
+  }
+}
+
+.recipeImage {
+  object-fit: cover;
+  height: 100%;
+  border-radius: var(--radius) var(--radius) 0 0;
+
+  @media (min-width: 992px) {
+    border-radius: var(--radius) 0 0 var(--radius);
+  }
+}
+
+.recipeDetails {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (min-width: 992px) {
+    flex: 2;
+  }
+}
+
+.recipeName {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.recipeMeta {
+  display: flex;
+  gap: 0.8rem;
+  color: #777;
+
+}
+
+.recipeMeta p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.recipeIngredients h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.recipeTags ul,
+.recipeCategories ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipeTags li,
+.recipeCategories li {
+  background-color: var(--accent);
+  color: var(--primary-foreground);
+  border-radius: var(--radius);
+  padding: 5px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+
 }

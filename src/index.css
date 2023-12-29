@@ -107,6 +107,7 @@ ul {
   display: flex;
   flex-direction: column;
   flex: 1 1 0%;
+  margin-top: 4rem;
 }
 
 .flex {
@@ -146,6 +147,11 @@ ul {
   /* 20px */
   margin-bottom: 1.25rem;
   /* 20px */
+}
+
+.mt-auto {
+  margin-top: auto;
+
 }
 
 .justify-between {
@@ -229,7 +235,23 @@ button {
   cursor: pointer;
   padding: .5rem;
   background-color: var(--background);
+  border: var(--border);
   border-radius: var(--radius);
+}
+
+input,
+textarea {
+  border-radius: var(--radius);
+  border: 1px solid var(--muted-foreground);
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+  transition: border-color 0.25s;
+
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+    border-color: var(--primary);
+  }
 }
 
 /* Sidebar */
@@ -260,7 +282,7 @@ button {
   background-color: transparent;
 
   &:hover {
-    color: var(--background);
+    color: var(--primary);
   }
 }
 
@@ -305,13 +327,12 @@ button {
   align-items: center;
   width: 100%;
   padding: 1rem;
-  background-color: var(--secondary);
+  height: 4rem;
+  background-color: var(--background);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
   position: fixed;
   top: 0;
   left: 0;
-
-
 }

@@ -1,16 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../recipes.module.css";
 import { ingredients } from "../../../../../data/ingredients";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Save } from "lucide-react";
 
 function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
   const { carbs, proteins, vegs } = ingredients;
   const [dinner, setDinner] = useState({});
   const [dinnerIngredients, setDinnerIngredients] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getRandomIngredient = (array) => {
     return array[Math.floor(Math.random() * array.length)];
   };
+
+  async function generateImage() {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_REACT_APP_SERVER_URL}/openAiApi/generateImage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: `A plate of food with ${dinner.name}`,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Parse the response as JSON
+      const imageData = await response.json();
+
+      return imageData.imageUrl;
+    } catch (error) {
+      console.error("Error generating image:", error);
+    }
+  }
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      setLoading(true);
+      const imageUrl = await generateImage();
+      setDinner((prevDinner) => ({ ...prevDinner, imageUrl }));
+      setDataLoaded(true);
+      setLoading(false);
+    };
+
+    if (dinner.name && !dataLoaded) {
+      fetchImage();
+    }
+  }, [dinner, dataLoaded]);
 
   const makeDinner = () => {
     const ingredients = [];
@@ -40,11 +84,9 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
       name: `${ingredients[0].name} with ${ingredients[1].name} & ${ingredients[2].name}, ${ingredients[3].name} and ${ingredients[4].name}`,
       ingredients: ingredients,
       instructions: "",
-      imageUrl: "",
       cookingTime: 0,
       categories: [],
       difficulty: "Easy",
-      url: "",
       tags: ["Auto Generated", "Simple Meal"],
       userOwner: userOwnerId,
     });
@@ -58,19 +100,69 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
       </p>
       <button className={styles.addButton} onClick={makeDinner}>
         <Sparkles className={styles.icon} />
-        Generate Recipe
+        {dinner.name ? "Generate another Recipe" : "Generate Recipe"}
       </button>
-      {dinner.name && <h3>{dinner.name}</h3>}
-      {dinnerIngredients && dinnerIngredients.length > 0 && (
-        <>
-          <ul>
-            {dinnerIngredients.map((ingredient, index) => (
-              <li key={index}>{ingredient.name}</li>
-            ))}
-          </ul>
-          <button onClick={() => saveRecipe(dinner)}>Save Recipe</button>
-        </>
+
+      {loading && <p>Loading...</p>}
+
+      {dataLoaded && dinner.imageUrl && (
+        <div className={styles.recipeCard}>
+          {dinner.imageUrl && (
+            <div className={styles.imageContainer}>
+              <img
+                className={styles.recipeImage}
+                src={dinner.imageUrl}
+                alt={dinner.name}
+              />
+            </div>
+          )}
+
+          <div className={styles.recipeDetails}>
+            {dinner.name && (
+              <h3 className={styles.recipeName}>{dinner.name}</h3>
+            )}
+            <div className={styles.recipeTags}>
+              <ul>
+                {dinner.tags.map((tag, index) => (
+                  <li key={index}>{tag}</li>
+                ))}
+                {dinner.categories.map((category, index) => (
+                  <li key={index}>{category}</li>
+                ))}
+              </ul>
+            </div>
+
+            {dinnerIngredients && dinnerIngredients.length > 0 && (
+              <>
+                <div className={styles.recipeIngredients}>
+                  <h4>Ingredients:</h4>
+                  <ol>
+                    {dinnerIngredients.map((ingredient, index) => (
+                      <li key={index}>{ingredient.name}</li>
+                    ))}
+                  </ol>
+                </div>
+              </>
+            )}
+
+            <div className={styles.recipeInstructions}>
+              <h4>Instructions:</h4>
+              <p>
+                <em>Coming soon...</em>
+              </p>
+            </div>
+
+            <button
+              onClick={() => saveRecipe(dinner)}
+              className="flex align-center gap-2"
+            >
+              <Save className={styles.icon} />
+              Save Recipe
+            </button>
+          </div>
+        </div>
       )}
+      {/* recipeCard */}
     </div>
   );
 }

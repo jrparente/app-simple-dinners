@@ -60,7 +60,7 @@ function App() {
             <Footer />
           </>
         ) : (
-          <div className="flex w-full" style={{ overflowX: "hidden" }}>
+          <div className="flex w-full">
             {isSidebarOpen && (
               <Sidebar
                 isMobile={isMobile}
