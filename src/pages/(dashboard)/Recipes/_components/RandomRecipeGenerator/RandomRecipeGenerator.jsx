@@ -145,10 +145,12 @@ function RandomRecipeGenerator({ saveRecipe, userOwnerId }) {
         Generate a random recipe containing one protein, one carb and three
         vegetables.
       </p>
-      <button className={styles.addButton} onClick={makeDinner}>
-        <Sparkles className={styles.icon} />
-        {dinner.name ? "Generate another Recipe" : "Generate Recipe"}
-      </button>
+      {!loading && (
+        <button className={styles.addButton} onClick={makeDinner}>
+          <Sparkles className={styles.icon} />
+          {dinner.name ? "Generate another Recipe" : "Generate Recipe"}
+        </button>
+      )}
 
       {loading && <p>Loading...</p>}
 
